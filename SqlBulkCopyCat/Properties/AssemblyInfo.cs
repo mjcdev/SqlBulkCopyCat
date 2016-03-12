@@ -34,3 +34,6 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+//Expose Internals to Unit Test Project
+[assembly: InternalsVisibleTo("SqlBulkCopyCat.Tests")]

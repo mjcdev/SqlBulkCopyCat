@@ -49,11 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ColumnMapping.cs" />
+    <Compile Include="Model\Deserialization\Interfaces\ISqlBulkCopyCatConfigDeserializer.cs" />
+    <Compile Include="Model\Deserialization\Json\SqlBulkCopyCatConfigJsonFileDeserializer.cs" />
+    <Compile Include="Model\Deserialization\Xml\SqlBulkCopyCatConfigXmlFileDeserializer.cs" />
+    <Compile Include="Model\SqlBulkCopyCatConfig.cs" />
+    <Compile Include="Model\TableMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

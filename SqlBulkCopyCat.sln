@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlBulkCopyCat", "SqlBulkCopyCat\SqlBulkCopyCat.csproj", "{4FE4D705-7101-4943-89DF-9C5F9B0D9042}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlBulkCopyCat.Tests", "..\SqlBulkCopyCat.Tests\SqlBulkCopyCat.Tests.csproj", "{A7BFD247-B5B7-4C59-894A-ACA29B4E2976}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlBulkCopyCat.Tests", "SqlBulkCopyCat.Tests\SqlBulkCopyCat.Tests.csproj", "{A7BFD247-B5B7-4C59-894A-ACA29B4E2976}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

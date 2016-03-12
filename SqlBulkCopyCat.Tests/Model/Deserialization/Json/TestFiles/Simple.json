@@ -1,0 +1,1 @@
+{"TableMappings":[{"Source":"SourceTable","Destination":"DestinationTable","ColumnMappings":[{"Source":"SourceColumn","Destination":"DestinationColumn"}]}]}
