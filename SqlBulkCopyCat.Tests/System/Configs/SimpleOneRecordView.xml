@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SqlBulkCopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceConnectionString>SourceConnectionString</SourceConnectionString>
+  <DestinationConnectionString>DestinationConnectionString</DestinationConnectionString>
+  <TableMappings>
+    <TableMapping>
+      <Source>SimpleSourceView</Source>
+      <Destination>SimpleDestination</Destination>
+      <ColumnMappings>
+        <ColumnMapping>
+          <Source>SourceViewColumn</Source>
+          <Destination>DestinationColumn</Destination>
+        </ColumnMapping>
+      </ColumnMappings>
+    </TableMapping>
+  </TableMappings>
+</SqlBulkCopyCatConfig>

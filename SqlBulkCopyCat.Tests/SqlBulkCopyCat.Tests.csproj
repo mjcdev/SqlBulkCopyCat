@@ -81,7 +81,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="System\AbstractSqlBulkCopyCatTests.cs" />
+    <Compile Include="System\DirectoryConstants.cs" />
+    <Compile Include="System\Fixtures\DatabaseConstants.cs" />
     <Compile Include="System\Fixtures\SqlBulkCopyCatTestsFixture.cs" />
+    <Compile Include="System\SqlFile.cs" />
     <Compile Include="System\SqlBulkCopyCatSimpleTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +105,10 @@
     <Content Include="Model\Deserialization\Xml\TestFiles\Simple.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="System\Fixtures\Schema\CreateTables.sql">
+    <Content Include="System\Configs\SimpleOneRecordView.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System\Configs\SimpleOneRecordSchema.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="System\Fixtures\Schema\CreateDatabases.sql">

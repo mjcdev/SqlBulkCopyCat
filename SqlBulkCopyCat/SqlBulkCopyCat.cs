@@ -37,6 +37,16 @@ namespace SqlBulkCopyCat
                     using (var bcp = new SqlBulkCopy(writeConnection))
                     {
                         writeConnection.Open();
+
+                        if (tableMapping.ColumnMappings.Any())
+                        {
+                            bcp.ColumnMappings.Clear();
+                            foreach (var columnMapping in tableMapping.ColumnMappings)
+                            {
+                                bcp.ColumnMappings.Add(new SqlBulkCopyColumnMapping(columnMapping.Source, columnMapping.Destination));
+                            }
+                        }
+
                         bcp.DestinationTableName = tableMapping.Destination;
                         bcp.WriteToServer(reader);
                     }                    

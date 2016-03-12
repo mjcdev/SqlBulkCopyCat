@@ -9,13 +9,11 @@ namespace SqlBulkCopyCat.Tests.System
 {
     public abstract class AbstractSqlBulkCopyCatTests : IClassFixture<SqlBulkCopyCatTestsFixture>
     {
-        private readonly string ConnectionString = Properties.Settings.Default["ConnectionString"].ToString();
-        private const string ScriptsDirectory = @"./System/Scripts";
-        private const string ConfigsDirectory = @"./System/Configs";
-
+        protected readonly string ConnectionString = Properties.Settings.Default["ConnectionString"].ToString();
+     
         protected SqlBulkCopyCatConfig BuildConfigFor(string fileName, string sourceDatabase, string destinationDatabase)
         {
-            var configFilePath = Path.Combine(ConfigsDirectory, fileName);
+            var configFilePath = Path.Combine(DirectoryConstants.Configs, fileName);
 
             var config = new SqlBulkCopyCatConfigBuilder().FromXmlFile(configFilePath);
 
@@ -30,21 +28,18 @@ namespace SqlBulkCopyCat.Tests.System
             var connectionString = new SqlConnectionStringBuilder(ConnectionString);
             connectionString.InitialCatalog = databaseName;
             return connectionString.ToString();
-        }
+        }       
 
-
-        protected void ExecuteSqlFile(string fileName)
+        protected int RowCountFor(string databaseName, string tableName)
         {
-            var filePath = Path.Combine(ScriptsDirectory, fileName);
+            var connectionString = ConnectionStringBuilder(databaseName);
 
-            var fileContent = File.ReadAllText(filePath);
-
-            using (var connection = new SqlConnection(ConnectionString))
+            using (var connection = new SqlConnection(connectionString))
             {
-                using (var command = new SqlCommand(fileContent, connection))
+                using (var command = new SqlCommand(string.Format("SELECT COUNT(*) FROM {0}", tableName), connection))
                 {
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    return (int)command.ExecuteScalar();
                 }
             }
         }

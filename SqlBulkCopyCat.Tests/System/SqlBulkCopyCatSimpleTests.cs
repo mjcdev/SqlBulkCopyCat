@@ -1,12 +1,5 @@
-﻿using SqlBulkCopyCat.Model.Config;
-using SqlBulkCopyCat.Model.Config.Builder;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using FluentAssertions;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace SqlBulkCopyCat.Tests.System.Fixtures
@@ -16,14 +9,47 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
         [Fact]
         public void Copy_Simple_OneRecord()
         {
-            ExecuteSqlFile("SimpleOneRecord.sql");
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts,"SimpleOneRecord.sql"), ConnectionString);
 
-            var config = BuildConfigFor("SimpleOneRecord.xml", "BulkCopyCatTestsSource","BulkCopyCatTestsDestination");
+            var config = BuildConfigFor("SimpleOneRecord.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
             var sqlBulkCopyCat = new SqlBulkCopyCat(config);
 
             sqlBulkCopyCat.Copy();
-        }       
+
+            RowCountFor(DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceTable).Should().Be(1);
+            RowCountFor(DatabaseConstants.DestinationDatabase, DatabaseConstants.SimpleDestinationTable).Should().Be(1);
+        }
         
+        [Fact]
+        public void Copy_Simple_OneRecord_View()
+        {
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts, "SimpleOneRecord.sql"), ConnectionString);
+
+            var config = BuildConfigFor("SimpleOneRecordView.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
+
+            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+
+            sqlBulkCopyCat.Copy();
+
+            RowCountFor(DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceView).Should().Be(1);
+            RowCountFor(DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceTable).Should().Be(1);
+            RowCountFor(DatabaseConstants.DestinationDatabase, DatabaseConstants.SimpleDestinationTable).Should().Be(1);
+        }
+        
+        [Fact]
+        public void Copy_Simple_OneRecord_Schema()
+        {
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts, "SimpleOneRecord.sql"), ConnectionString);
+
+            var config = BuildConfigFor("SimpleOneRecordSchema.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
+
+            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+
+            sqlBulkCopyCat.Copy();
+
+            RowCountFor(DatabaseConstants.SourceDatabase, string.Format("{0}.{1}", DatabaseConstants.SourceSchema, DatabaseConstants.SimpleSourceTable)).Should().Be(1);
+            RowCountFor(DatabaseConstants.DestinationDatabase, string.Format("{0}.{1}", DatabaseConstants.DestinationSchema, DatabaseConstants.SimpleDestinationTable)).Should().Be(1);
+        }      
     }
 }
