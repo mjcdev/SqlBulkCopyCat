@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using SqlBulkCopyCat.Model.Deserialization.Interfaces;
-using System;
+using SqlBulkCopyCat.Model.Config.Deserialization.Interfaces;
 using System.IO;
 
-namespace SqlBulkCopyCat.Model.Deserialization.Json
+namespace SqlBulkCopyCat.Model.Config.Deserialization.Json
 {
     internal class SqlBulkCopyCatConfigJsonFileDeserializer : ISqlBulkCopyCatConfigDeserializer
     {

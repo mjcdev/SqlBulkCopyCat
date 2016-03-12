@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SqlBulkCopyCat.Model
+namespace SqlBulkCopyCat.Model.Config
 {
     [Serializable]
     public class ColumnMapping

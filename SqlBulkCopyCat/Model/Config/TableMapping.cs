@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SqlBulkCopyCat.Model
+namespace SqlBulkCopyCat.Model.Config
 {
     [Serializable]
     public class TableMapping

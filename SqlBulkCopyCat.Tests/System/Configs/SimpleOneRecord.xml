@@ -4,8 +4,8 @@
   <DestinationConnectionString>DestinationConnectionString</DestinationConnectionString>
   <TableMappings>
     <TableMapping>
-      <Source>SourceTable</Source>
-      <Destination>DestinationTable</Destination>
+      <Source>SimpleSource</Source>
+      <Destination>SimpleDestination</Destination>
       <ColumnMappings>
         <ColumnMapping>
           <Source>SourceColumn</Source>

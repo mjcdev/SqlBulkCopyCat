@@ -1,4 +1,4 @@
-﻿namespace SqlBulkCopyCat.Model.Deserialization.Interfaces
+﻿namespace SqlBulkCopyCat.Model.Config.Deserialization.Interfaces
 {
     internal interface ISqlBulkCopyCatConfigDeserializer
     {

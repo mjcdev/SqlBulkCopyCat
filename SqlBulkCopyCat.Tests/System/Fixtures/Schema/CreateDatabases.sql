@@ -1,0 +1,3 @@
+﻿CREATE DATABASE BulkCopyCatTestsSource
+
+CREATE DATABASE BulkCopyCatTestsDestination

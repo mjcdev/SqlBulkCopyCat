@@ -1,8 +1,8 @@
-﻿using SqlBulkCopyCat.Model.Deserialization.Interfaces;
+﻿using SqlBulkCopyCat.Model.Config.Deserialization.Interfaces;
 using System.Xml.Serialization;
 using System.IO;
 
-namespace SqlBulkCopyCat.Model.Deserialization.Xml
+namespace SqlBulkCopyCat.Model.Config.Deserialization.Xml
 {
     internal class SqlBulkCopyCatConfigXmlFileDeserializer : ISqlBulkCopyCatConfigDeserializer
     {

@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using SqlBulkCopyCat.Model.Deserialization.Interfaces;
-using SqlBulkCopyCat.Model.Deserialization.Xml;
+using SqlBulkCopyCat.Model.Config.Deserialization.Interfaces;
+using SqlBulkCopyCat.Model.Config.Deserialization.Xml;
 using System.IO;
 using System.Linq;
 using Xunit;
@@ -23,6 +23,8 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Xml
 
             var config = deserializer.Deserialize(TestFileLocation("Simple.xml"));
 
+            config.SourceConnectionString = "SourceConnectionString";
+            config.DestinationConnectionString = "DestinationConnectionString";
             config.TableMappings.Should().HaveCount(1);
 
             var tableMapping = config.TableMappings.First();

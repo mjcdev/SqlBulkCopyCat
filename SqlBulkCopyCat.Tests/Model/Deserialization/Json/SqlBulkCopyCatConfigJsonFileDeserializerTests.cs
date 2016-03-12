@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using SqlBulkCopyCat.Model.Deserialization.Interfaces;
-using SqlBulkCopyCat.Model.Deserialization.Json;
+using SqlBulkCopyCat.Model.Config.Deserialization.Interfaces;
+using SqlBulkCopyCat.Model.Config.Deserialization.Json;
 using System.IO;
 using System.Linq;
 using Xunit;
@@ -23,6 +23,8 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
 
             var config = deserializer.Deserialize(TestFileLocation("Simple.json"));
 
+            config.SourceConnectionString = "SourceConnectionString";
+            config.DestinationConnectionString = "DestinationConnectionString";
             config.TableMappings.Should().HaveCount(1);
 
             var tableMapping = config.TableMappings.First();
