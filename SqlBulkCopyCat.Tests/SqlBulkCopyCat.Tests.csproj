@@ -71,6 +71,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\SqlBulkCopyBuilderLogicTests.cs" />
+    <Compile Include="Model\Config\ColumnMappingLogicTests.cs" />
     <Compile Include="Model\Config\Deserialization\Abstract\AbstractSqlBulkCopyCatConfigDeserializerTests.cs" />
     <Compile Include="Model\Config\Deserialization\Json\SqlBulkCopyCatConfigJsonFileDeserializerTests.cs" />
     <Compile Include="Model\Config\Deserialization\Xml\SqlBulkCopyCatConfigXmlFileDeserializerTests.cs" />

@@ -49,12 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builder\SqlBulkCopyBuilder.cs" />
     <Compile Include="Model\Config\Builder\SqlBulkCopyCatConfigBuilder.cs" />
     <Compile Include="Model\Config\ColumnMapping.cs" />
     <Compile Include="Model\Config\Deserialization\Interfaces\ISqlBulkCopyCatConfigDeserializer.cs" />
     <Compile Include="Model\Config\Deserialization\Json\SqlBulkCopyCatConfigJsonFileDeserializer.cs" />
     <Compile Include="Model\Config\Deserialization\Xml\SqlBulkCopyCatConfigXmlFileDeserializer.cs" />
     <Compile Include="Model\Config\SqlBulkCopyCatConfig.cs" />
+    <Compile Include="Model\Config\SqlBulkCopySettings.cs" />
     <Compile Include="Model\Config\TableMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlBulkCopyCat.cs" />
