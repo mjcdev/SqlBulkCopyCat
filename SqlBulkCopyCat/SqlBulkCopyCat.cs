@@ -33,7 +33,7 @@ namespace SqlBulkCopyCat
                 foreach(var tableMapping in Config.TableMappings)
                 {
                     using (var readConnection = new SqlConnection(Config.SourceConnectionString))                    
-                    using (var reader = readConnection.ExecuteReader(string.Format("SELECT * FROM {0}", tableMapping.Source)))
+                    using (var reader = readConnection.ExecuteReader(tableMapping.BuildSelectSql()))
                     using (var bcp = new SqlBulkCopy(writeConnection))
                     {
                         writeConnection.Open();

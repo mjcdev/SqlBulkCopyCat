@@ -71,9 +71,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Deserialization\Json\SqlBulkCopyCatConfigJsonFileDeserializerTests.cs" />
-    <Compile Include="Model\Deserialization\Xml\SqlBulkCopyCatConfigXmlFileDeserializerTests.cs" />
-    <Compile Include="Model\Builder\SqlBulkCopyCatConfigBuilderLogicTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Abstract\AbstractSqlBulkCopyCatConfigDeserializerTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Json\SqlBulkCopyCatConfigJsonFileDeserializerTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Xml\SqlBulkCopyCatConfigXmlFileDeserializerTests.cs" />
+    <Compile Include="Model\Config\Builder\SqlBulkCopyCatConfigBuilderLogicTests.cs" />
+    <Compile Include="Model\Config\SqlBulkCopyCatLogicTests.cs" />
+    <Compile Include="Model\Config\TableMappingLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,7 +92,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Model\Deserialization\Json\TestFiles\Simple.json">
+    <None Include="Model\Config\Deserialization\Json\TestFiles\EmptyColumnMappings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Model\Config\Deserialization\Json\TestFiles\NoColumnMappings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Model\Config\Deserialization\Json\TestFiles\Simple.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
@@ -102,7 +111,13 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\Deserialization\Xml\TestFiles\Simple.xml">
+    <Content Include="Model\Config\Deserialization\Xml\TestFiles\EmptyColumnMappings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Model\Config\Deserialization\Xml\TestFiles\NoColumnMappings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Model\Config\Deserialization\Xml\TestFiles\Simple.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="System\Configs\SimpleOneRecordView.xml">
