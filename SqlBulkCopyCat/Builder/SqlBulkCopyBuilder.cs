@@ -1,6 +1,6 @@
-﻿using SqlBulkCopyCat.Model.Config;
+﻿using SqlBulkCopyCat.Extensions;
+using SqlBulkCopyCat.Model.Config;
 using System.Data.SqlClient;
-using System.Linq;
 
 namespace SqlBulkCopyCat.Builder
 {
@@ -10,17 +10,8 @@ namespace SqlBulkCopyCat.Builder
         {
             var sqlBulkCopy = new SqlBulkCopy(sqlConnection, SqlBulkCopyOptions.Default, sqlTransaction);
 
-            sqlBulkCopy.DestinationTableName = tableMapping.Destination;
-            
-            if (tableMapping.ColumnMappings.Any())
-            {
-                sqlBulkCopy.ColumnMappings.Clear();
-
-                foreach(var columnMapping in tableMapping.ColumnMappings)
-                {
-                    sqlBulkCopy.ColumnMappings.Add(columnMapping.BuildSqlBulkCopyColumnMapping());
-                }
-            }          
+            sqlBulkCopy.ConfigureDestinationTableName(tableMapping);
+            sqlBulkCopy.ConfigureColumnMappings(tableMapping);        
 
             return sqlBulkCopy;
         }

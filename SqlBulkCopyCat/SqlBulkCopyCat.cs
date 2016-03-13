@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using SqlBulkCopyCat.Builder;
 using SqlBulkCopyCat.Model.Config;
 using System.Data.SqlClient;
 using System.Linq;
@@ -30,20 +31,10 @@ namespace SqlBulkCopyCat
                 {
                     using (var readConnection = new SqlConnection(Config.SourceConnectionString))                    
                     using (var reader = readConnection.ExecuteReader(tableMapping.BuildSelectSql()))
-                    using (var bcp = new SqlBulkCopy(writeConnection))
+                    using (var bcp = SqlBulkCopyBuilder.Build(writeConnection, tableMapping))
                     {
                         writeConnection.Open();
 
-                        if (tableMapping.ColumnMappings.Any())
-                        {
-                            bcp.ColumnMappings.Clear();
-                            foreach (var columnMapping in tableMapping.ColumnMappings)
-                            {
-                                bcp.ColumnMappings.Add(new SqlBulkCopyColumnMapping(columnMapping.Source, columnMapping.Destination));
-                            }
-                        }
-
-                        bcp.DestinationTableName = tableMapping.Destination;
                         bcp.WriteToServer(reader);
                     }                    
                 }
