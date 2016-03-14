@@ -8,8 +8,11 @@ namespace SqlBulkCopyCat.Model.Config
     {
         private List<TableMapping> _tableMappings = new List<TableMapping>();
 
-        public string SourceConnectionString { get; set; }        
+        public string SourceConnectionString { get; set; }
+
         public string DestinationConnectionString { get; set; }
+
+        public SqlBulkCopySettings SqlBulkCopySettings { get; set; }
 
         public List<TableMapping> TableMappings
         {

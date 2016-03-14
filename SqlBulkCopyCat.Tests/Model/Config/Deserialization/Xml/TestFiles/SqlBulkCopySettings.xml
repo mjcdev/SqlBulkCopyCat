@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<SqlBulkCopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SqlBulkCopySettings>
+    <BatchSize>300</BatchSize>
+    <BulkCopyTimeout>1000</BulkCopyTimeout>
+    <EnableStreaming>false</EnableStreaming>
+    <SqlBulkCopyOptions>20</SqlBulkCopyOptions>
+  </SqlBulkCopySettings>
+  <TableMappings />
+</SqlBulkCopyCatConfig>

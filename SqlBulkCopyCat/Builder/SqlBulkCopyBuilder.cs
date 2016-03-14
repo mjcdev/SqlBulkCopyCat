@@ -8,10 +8,20 @@ namespace SqlBulkCopyCat.Builder
     {
         public static SqlBulkCopy Build(SqlConnection sqlConnection, TableMapping tableMapping, SqlBulkCopySettings sqlBulkCopySettings = null, SqlTransaction sqlTransaction = null)
         {
-            var sqlBulkCopy = new SqlBulkCopy(sqlConnection, SqlBulkCopyOptions.Default, sqlTransaction);
+            var sqlBulkCopyOptions = SqlBulkCopyOptions.Default;
+
+            if(sqlBulkCopySettings != null)
+            {
+                sqlBulkCopyOptions = sqlBulkCopySettings.GetSqlBulkCopyOptions();
+            }
+
+            var sqlBulkCopy = new SqlBulkCopy(sqlConnection, sqlBulkCopyOptions, sqlTransaction);
 
             sqlBulkCopy.ConfigureDestinationTableName(tableMapping);
-            sqlBulkCopy.ConfigureColumnMappings(tableMapping);        
+            sqlBulkCopy.ConfigureColumnMappings(tableMapping);
+            sqlBulkCopy.ConfigureBatchSize(sqlBulkCopySettings);
+            sqlBulkCopy.ConfigureBulkCopyTimeout(sqlBulkCopySettings);
+            sqlBulkCopy.ConfigureEnableStreaming(sqlBulkCopySettings);             
 
             return sqlBulkCopy;
         }

@@ -7,6 +7,8 @@ namespace SqlBulkCopyCat.Extensions
     internal static class SqlBulkCopyExtensions
     {
         private const int BatchSizeDefault = 500;
+        private const int BulkCopyTimeoutDefault = 30;
+        private const bool EnableStreamingDefault = true;
 
         internal static SqlBulkCopy ConfigureColumnMappings(this SqlBulkCopy sqlBulkCopy, TableMapping tableMapping)
         {
@@ -42,6 +44,34 @@ namespace SqlBulkCopyCat.Extensions
             }
 
             return sqlBulkCopy;            
+        }
+
+        internal static SqlBulkCopy ConfigureBulkCopyTimeout(this SqlBulkCopy sqlBulkCopy, SqlBulkCopySettings sqlBulkCopySettings)
+        {
+            if (sqlBulkCopySettings != null && sqlBulkCopySettings.BulkCopyTimeout.HasValue)
+            {
+                sqlBulkCopy.BulkCopyTimeout = sqlBulkCopySettings.BulkCopyTimeout.Value;
+            }
+            else
+            {
+                sqlBulkCopy.BulkCopyTimeout = BulkCopyTimeoutDefault;
+            }
+
+            return sqlBulkCopy;
+        }
+
+        internal static SqlBulkCopy ConfigureEnableStreaming(this SqlBulkCopy sqlBulkCopy, SqlBulkCopySettings sqlBulkCopySettings)
+        {
+            if (sqlBulkCopySettings != null && sqlBulkCopySettings.EnableStreaming.HasValue)
+            {
+                sqlBulkCopy.EnableStreaming = sqlBulkCopySettings.EnableStreaming.Value;
+            }
+            else
+            {
+                sqlBulkCopy.EnableStreaming = EnableStreamingDefault;
+            }
+
+            return sqlBulkCopy;
         }
     }
 }

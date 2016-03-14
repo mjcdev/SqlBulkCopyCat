@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using SqlBulkCopyCat.Model.Config;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 
@@ -55,6 +56,17 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             tableMapping.Destination.Should().Be("DestinationTable");
             tableMapping.Source.Should().Be("SourceTable");
             tableMapping.ColumnMappings.Should().HaveCount(0);
+        }
+
+        protected void SqlBulkCopySettingsAssertions(SqlBulkCopyCatConfig config)
+        {
+            config.SqlBulkCopySettings.Should().NotBeNull();
+            config.SqlBulkCopySettings.BatchSize.Should().Be(300);
+            config.SqlBulkCopySettings.BulkCopyTimeout.Should().Be(1000);
+            config.SqlBulkCopySettings.EnableStreaming.Should().BeFalse();
+            config.SqlBulkCopySettings.SqlBulkCopyOptions.Should().HaveValue();
+            config.SqlBulkCopySettings.SqlBulkCopyOptions.Should().Be(20);
+            config.SqlBulkCopySettings.GetSqlBulkCopyOptions().Should().Be(SqlBulkCopyOptions.FireTriggers | SqlBulkCopyOptions.TableLock);
         }
     }
 }

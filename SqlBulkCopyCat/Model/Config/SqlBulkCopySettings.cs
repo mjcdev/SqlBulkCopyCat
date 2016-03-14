@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace SqlBulkCopyCat.Model.Config
 {
@@ -10,8 +6,29 @@ namespace SqlBulkCopyCat.Model.Config
     {
         public int? BatchSize { get; set; }
 
-        public int? Timeout { get; set; }
+        public int? BulkCopyTimeout { get; set; }
 
         public bool? EnableStreaming { get; set; }
+
+        public int? SqlBulkCopyOptions { get; set; }
+
+        public int? SetSqlBulkCopyOptions(SqlBulkCopyOptions sqlBulkCopyOptions)
+        {
+            var sqlBulkCopyOptionsNullableInt =  (int?)sqlBulkCopyOptions;
+
+            SqlBulkCopyOptions = sqlBulkCopyOptionsNullableInt;
+
+            return sqlBulkCopyOptionsNullableInt;
+        }
+
+        public SqlBulkCopyOptions GetSqlBulkCopyOptions()
+        {
+            if (SqlBulkCopyOptions.HasValue)
+            {
+                return (SqlBulkCopyOptions)SqlBulkCopyOptions;
+            }
+
+            return System.Data.SqlClient.SqlBulkCopyOptions.Default;            
+        }
     }
 }

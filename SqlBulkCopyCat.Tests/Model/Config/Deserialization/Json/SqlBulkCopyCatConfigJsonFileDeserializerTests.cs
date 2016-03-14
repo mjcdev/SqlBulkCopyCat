@@ -47,5 +47,15 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
 
             NoColumnMappingsConfigAssertions(config);
         }
+
+        [Fact]
+        public void Deserialize_Success_SqlBulkCopySettings()
+        {
+            ISqlBulkCopyCatConfigDeserializer deserializer = new SqlBulkCopyCatConfigJsonFileDeserializer();
+
+            var config = deserializer.Deserialize(TestFileLocation("SqlBulkCopySettings.json"));
+
+            SqlBulkCopySettingsAssertions(config);
+        }
     }
 }

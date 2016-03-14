@@ -125,5 +125,91 @@ namespace SqlBulkCopyCat.Tests.Extensions
                 sqlBulkCopy.BatchSize.Should().Be(100);
             }
         }
+
+        [Fact]
+        public void ConfigureTimeout_NullSettings()
+        {
+            using (var sqlBulkCopy = new SqlBulkCopy(TestConnectionString))
+            {
+                sqlBulkCopy.ConfigureBulkCopyTimeout(null);
+
+                sqlBulkCopy.BulkCopyTimeout.Should().Be(30);
+            }
+        }
+
+        [Fact]
+        public void ConfigureTimeout_NullTimeout()
+        {
+            using (var sqlBulkCopy = new SqlBulkCopy(TestConnectionString))
+            {
+                var sqlBulkCopyCatSettings = new SqlBulkCopySettings
+                {
+                    BulkCopyTimeout = null
+                };
+
+                sqlBulkCopy.ConfigureBulkCopyTimeout(sqlBulkCopyCatSettings);
+
+                sqlBulkCopy.BulkCopyTimeout.Should().Be(30);
+            }
+        }
+
+        [Fact]
+        public void ConfigureTimeout_NotNullTimeout()
+        {
+            using (var sqlBulkCopy = new SqlBulkCopy(TestConnectionString))
+            {
+                var sqlBulkCopyCatSettings = new SqlBulkCopySettings
+                {
+                    BulkCopyTimeout = 600
+                };
+
+                sqlBulkCopy.ConfigureBulkCopyTimeout(sqlBulkCopyCatSettings);
+
+                sqlBulkCopy.BulkCopyTimeout.Should().Be(600);
+            }
+        }
+
+        [Fact]
+        public void ConfigureEnableStreaming_NullSettings()
+        {
+            using (var sqlBulkCopy = new SqlBulkCopy(TestConnectionString))
+            {
+                sqlBulkCopy.ConfigureEnableStreaming(null);
+
+                sqlBulkCopy.EnableStreaming.Should().Be(true);
+            }
+        }
+
+        [Fact]
+        public void ConfigureEnableStreaming_NullEnableStreaming()
+        {
+            using (var sqlBulkCopy = new SqlBulkCopy(TestConnectionString))
+            {
+                var sqlBulkCopyCatSettings = new SqlBulkCopySettings
+                {
+                    EnableStreaming = null
+                };
+
+                sqlBulkCopy.ConfigureEnableStreaming(sqlBulkCopyCatSettings);
+
+                sqlBulkCopy.EnableStreaming.Should().Be(true);
+            }
+        }
+
+        [Fact]
+        public void ConfigureEnableStreaming_NotNullEnableStreaming()
+        {
+            using (var sqlBulkCopy = new SqlBulkCopy(TestConnectionString))
+            {
+                var sqlBulkCopyCatSettings = new SqlBulkCopySettings
+                {
+                    EnableStreaming = false
+                };
+
+                sqlBulkCopy.ConfigureEnableStreaming(sqlBulkCopyCatSettings);
+
+                sqlBulkCopy.EnableStreaming.Should().Be(false);
+            }
+        }
     }
 }

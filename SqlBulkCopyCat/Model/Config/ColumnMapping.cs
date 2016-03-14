@@ -17,6 +17,7 @@ namespace SqlBulkCopyCat.Model.Config
             {
                 _sqlBulkCopyColumnMapping = new SqlBulkCopyColumnMapping(Source, Destination); 
             }
+
             return _sqlBulkCopyColumnMapping;
         }
     }
