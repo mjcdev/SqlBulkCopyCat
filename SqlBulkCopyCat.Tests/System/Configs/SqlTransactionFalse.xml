@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<SqlBulkCopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceConnectionString>SourceConnectionString</SourceConnectionString>
+  <DestinationConnectionString>DestinationConnectionString</DestinationConnectionString>
+  <SqlTransaction>false</SqlTransaction>
+  <TableMappings>
+    <TableMapping>
+      <Source>SimpleSource</Source>
+      <Destination>SimpleDestination</Destination>
+      <ColumnMappings>
+        <ColumnMapping>
+          <Source>SourceColumn</Source>
+          <Destination>DestinationColumn</Destination>
+        </ColumnMapping>
+      </ColumnMappings>
+    </TableMapping>
+    <TableMapping>
+      <Source>TableDoesntExist</Source>
+      <Destination>TableDoesntExist</Destination>
+      <ColumnMappings>
+        <ColumnMapping>
+          <Source>SourceColumn</Source>
+          <Destination>DestinationColumn</Destination>
+        </ColumnMapping>
+      </ColumnMappings>
+    </TableMapping>
+  </TableMappings>
+</SqlBulkCopyCatConfig>

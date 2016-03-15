@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Builder\SqlBulkCopyBuilderLogicTests.cs" />
     <Compile Include="Extensions\SqlBulkCopyExtensionsLogicTests.cs" />
+    <Compile Include="Extensions\SqlConnectionExtensionsLogicTests.cs" />
     <Compile Include="Model\Config\ColumnMappingLogicTests.cs" />
     <Compile Include="Model\Config\Deserialization\Abstract\AbstractSqlBulkCopyCatConfigDeserializerTests.cs" />
     <Compile Include="Model\Config\Deserialization\Json\SqlBulkCopyCatConfigJsonFileDeserializerTests.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="System\DirectoryConstants.cs" />
     <Compile Include="System\Fixtures\DatabaseConstants.cs" />
     <Compile Include="System\Fixtures\SqlBulkCopyCatTestsFixture.cs" />
+    <Compile Include="System\SqlTransactionTests.cs" />
     <Compile Include="System\SqlFile.cs" />
     <Compile Include="System\SqlBulkCopyCatSimpleTests.cs" />
   </ItemGroup>
@@ -128,6 +130,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Model\Config\Deserialization\Xml\TestFiles\SqlBulkCopySettings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System\Configs\SqlTransactionFalse.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System\Configs\SqlTransactionOmitted.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System\Configs\SqlTransactionTrue.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="System\Configs\SimpleOneRecordView.xml">

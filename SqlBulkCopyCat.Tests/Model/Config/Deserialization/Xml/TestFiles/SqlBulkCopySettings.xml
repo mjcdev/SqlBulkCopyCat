@@ -7,4 +7,5 @@
     <SqlBulkCopyOptions>20</SqlBulkCopyOptions>
   </SqlBulkCopySettings>
   <TableMappings />
+  <SqlTransaction>false</SqlTransaction>
 </SqlBulkCopyCatConfig>

@@ -4,6 +4,7 @@ using Xunit;
 
 namespace SqlBulkCopyCat.Tests.System.Fixtures
 {
+    [Collection("Sql")]
     public class SqlBulkCopyCatSimpleTests : AbstractSqlBulkCopyCatTests
     {
         [Fact]
@@ -50,6 +51,6 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             RowCountFor(DatabaseConstants.SourceDatabase, string.Format("{0}.{1}", DatabaseConstants.SourceSchema, DatabaseConstants.SimpleSourceTable)).Should().Be(1);
             RowCountFor(DatabaseConstants.DestinationDatabase, string.Format("{0}.{1}", DatabaseConstants.DestinationSchema, DatabaseConstants.SimpleDestinationTable)).Should().Be(1);
-        }      
+        }
     }
 }

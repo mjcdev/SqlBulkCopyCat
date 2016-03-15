@@ -14,6 +14,8 @@ namespace SqlBulkCopyCat.Model.Config
 
         public SqlBulkCopySettings SqlBulkCopySettings { get; set; }
 
+        public bool? SqlTransaction { get; set; }
+
         public List<TableMapping> TableMappings
         {
             get

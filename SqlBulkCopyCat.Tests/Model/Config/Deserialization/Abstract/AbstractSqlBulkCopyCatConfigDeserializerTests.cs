@@ -60,6 +60,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
 
         protected void SqlBulkCopySettingsAssertions(SqlBulkCopyCatConfig config)
         {
+            config.SqlTransaction.Should().BeFalse();
             config.SqlBulkCopySettings.Should().NotBeNull();
             config.SqlBulkCopySettings.BatchSize.Should().Be(300);
             config.SqlBulkCopySettings.BulkCopyTimeout.Should().Be(1000);
@@ -67,6 +68,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             config.SqlBulkCopySettings.SqlBulkCopyOptions.Should().HaveValue();
             config.SqlBulkCopySettings.SqlBulkCopyOptions.Should().Be(20);
             config.SqlBulkCopySettings.GetSqlBulkCopyOptions().Should().Be(SqlBulkCopyOptions.FireTriggers | SqlBulkCopyOptions.TableLock);
+            
         }
     }
 }
