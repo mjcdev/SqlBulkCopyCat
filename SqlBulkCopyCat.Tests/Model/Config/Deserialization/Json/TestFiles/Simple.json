@@ -1,1 +1,18 @@
-{"SourceConnectionString":"SourceConnectionString","DestinationConnectionString":"DestinationConnectionString","TableMappings":[{"Source":"SourceTable","Destination":"DestinationTable","ColumnMappings":[{"Source":"SourceColumn","Destination":"DestinationColumn"}]}]}
+{
+  "SourceConnectionString": "Server = (local)\\SQLExpress;Trusted_Connection=True;Initial Catalog=Source;",
+  "DestinationConnectionString": "Server = (local)\\SQLExpress;Trusted_Connection=True;Initial Catalog=Destination;",
+  "SourceInitialCatalog": "SourceOverride",
+  "DestinationInitialCatalog": "DestinationOverride",
+  "TableMappings": [
+    {
+      "Source": "SourceTable",
+      "Destination": "DestinationTable",
+      "ColumnMappings": [
+        {
+          "Source": "SourceColumn",
+          "Destination": "DestinationColumn"
+        }
+      ]
+    }
+  ]
+}

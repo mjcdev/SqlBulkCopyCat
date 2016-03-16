@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace SqlBulkCopyCat.Model.Config
 {
@@ -8,9 +9,37 @@ namespace SqlBulkCopyCat.Model.Config
     {
         private List<TableMapping> _tableMappings = new List<TableMapping>();
 
-        public string SourceConnectionString { get; set; }
+        internal string _sourceConnectionString;
 
-        public string DestinationConnectionString { get; set; }
+        internal string _destinationConnectionString;
+
+        public string SourceConnectionString
+        {
+            get
+            {
+                return OverrideInitialCatalog(_sourceConnectionString, SourceInitialCatalog);
+            }
+            set
+            {
+                _sourceConnectionString = value;
+            }
+        }
+
+        public string DestinationConnectionString
+        {
+            get
+            {
+                return OverrideInitialCatalog(_destinationConnectionString, DestinationInitialCatalog);
+            }
+            set
+            {
+                _destinationConnectionString = value;
+            }
+        }
+
+        public string SourceInitialCatalog { get; set; }
+
+        public string DestinationInitialCatalog { get; set; }
 
         public SqlBulkCopySettings SqlBulkCopySettings { get; set; }
 
@@ -26,6 +55,19 @@ namespace SqlBulkCopyCat.Model.Config
             {
                 _tableMappings = value;
             }
-        }    
+        } 
+        
+        private string OverrideInitialCatalog(string baseConnectionString, string overrideInitialCatalog)
+        {
+            if (overrideInitialCatalog != null)
+            {
+                var connectionString = new SqlConnectionStringBuilder(baseConnectionString);
+                connectionString.InitialCatalog = overrideInitialCatalog;
+
+                return connectionString.ToString();
+            }
+
+            return baseConnectionString;
+        }   
     }
 }

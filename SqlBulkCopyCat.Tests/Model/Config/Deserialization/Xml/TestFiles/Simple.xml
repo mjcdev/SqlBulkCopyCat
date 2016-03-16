@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <SqlBulkCopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceConnectionString>SourceConnectionString</SourceConnectionString>
-  <DestinationConnectionString>DestinationConnectionString</DestinationConnectionString>
+  <SourceConnectionString>Server = (local)\SQLExpress;Trusted_Connection=True;Initial Catalog=Source;</SourceConnectionString>
+  <DestinationConnectionString>Server = (local)\SQLExpress;Trusted_Connection=True;Initial Catalog=Destination;</DestinationConnectionString>
+  <SourceInitialCatalog>SourceOverride</SourceInitialCatalog>
+  <DestinationInitialCatalog>DestinationOverride</DestinationInitialCatalog>
   <TableMappings>
     <TableMapping>
       <Source>SourceTable</Source>
