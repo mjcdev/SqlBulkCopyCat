@@ -12,11 +12,11 @@ Supporting Configuration by:
 
 ### To Do
 
-- [ ] Initial Catalog outside of Connection String Configuration;
-- [ ] Table Order;
-- [ ] Nuget Package;
-- [ ] Notify after X Event Handler;
-- [ ] Extensibility Points.
+- [X] Initial Catalog outside of Connection String Configuration
+- [ ] Table Order
+- [ ] Nuget Package
+- [ ] Notify after X Event Handler
+- [ ] Extensibility Points
 
 ## Examples
 
