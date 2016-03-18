@@ -20,6 +20,7 @@ namespace SqlBulkCopyCat.Tests.System
                 {
                     using (var sqlCommand = new SqlCommand(command, connection))
                     {
+                        sqlCommand.CommandTimeout = 0;
                         sqlCommand.ExecuteNonQuery();
                     }
                 }               

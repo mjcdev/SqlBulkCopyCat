@@ -93,6 +93,7 @@
     <Compile Include="System\Fixtures\DatabaseConstants.cs" />
     <Compile Include="System\Fixtures\SqlBulkCopyCatTestsFixture.cs" />
     <Compile Include="System\SqlBulkCopyCatComplexTests.cs" />
+    <Compile Include="System\SqlBulkCopyPerformanceTests.cs" />
     <Compile Include="System\SqlBulkCopyCatDataTypeTests.cs" />
     <Compile Include="System\SqlTransactionTests.cs" />
     <Compile Include="System\SqlFile.cs" />
@@ -140,6 +141,9 @@
     <Content Include="System\Configs\DataTypesOneRecord.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="System\Configs\Performance.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="System\Configs\SqlTransactionFalse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -162,6 +166,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="System\Configs\SimpleOneRecord.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System\Scripts\Performance.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="System\Scripts\ComplexOneRecord.sql">

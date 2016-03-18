@@ -15,6 +15,8 @@
         public const string ComplexDestinationOneTable = "ComplexDestinationOne";
         public const string ComplexDestinationTwoTable = "ComplexDestinationTwo";
         public const string ComplexDestinationThreeTable = "ComplexDestinationThree";
+        public const string PerformanceSourceTable = "PerformanceSource";
+        public const string PerformanceDestinationTable = "PerformanceDestination";
 
         public const string SourceSchema = "Source";
         public const string DestinationSchema = "Destination";

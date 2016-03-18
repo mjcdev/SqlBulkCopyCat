@@ -78,12 +78,140 @@ CREATE TABLE ComplexSourceThree
 	ComplexColumnOne NVARCHAR(1000)
 )
 
+CREATE TABLE PerformanceSource
+(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Column1 NVARCHAR(1000),
+	Column2 NVARCHAR(1000),
+	Column3 NVARCHAR(1000),
+	Column4 NVARCHAR(1000),
+	Column5 NVARCHAR(1000),
+	Column6 NVARCHAR(1000),
+	Column7 NVARCHAR(1000),
+	Column8 NVARCHAR(1000),
+	Column9 NVARCHAR(1000),
+	Column10 NVARCHAR(1000),
+	Column11 NVARCHAR(1000),
+	Column12 NVARCHAR(1000),
+	Column13 NVARCHAR(1000),
+	Column14 NVARCHAR(1000),
+	Column15 NVARCHAR(1000),
+	Column16 NVARCHAR(1000),
+	Column17 NVARCHAR(1000),
+	Column18 NVARCHAR(1000),
+	Column19 NVARCHAR(1000),
+	Column21 NVARCHAR(1000),
+	Column22 NVARCHAR(1000),
+	Column23 NVARCHAR(1000),
+	Column24 NVARCHAR(1000),
+	Column25 NVARCHAR(1000),
+	Column26 NVARCHAR(1000),
+	Column27 NVARCHAR(1000),
+	Column28 NVARCHAR(1000),
+	Column29 NVARCHAR(1000),
+	Column31 NVARCHAR(1000),
+	Column32 NVARCHAR(1000),
+	Column33 NVARCHAR(1000),
+	Column34 NVARCHAR(1000),
+	Column35 NVARCHAR(1000),
+	Column36 NVARCHAR(1000),
+	Column37 NVARCHAR(1000),
+	Column38 NVARCHAR(1000),
+	Column39 NVARCHAR(1000),
+	Column40 NVARCHAR(1000)
+)
+
 GO
 
 CREATE VIEW SimpleSourceView AS SELECT SourceColumn AS SourceViewColumn FROM SimpleSource
 
 GO
 
+CREATE PROCEDURE DoublePerformanceTable
+AS
+	INSERT INTO BulkCopyCatTestsSource.dbo.PerformanceSource
+	(	
+		Column1,
+		Column2,
+		Column3,
+		Column4,
+		Column5,
+		Column6,
+		Column7,
+		Column8,
+		Column9,
+		Column10,
+		Column11,
+		Column12,
+		Column13,
+		Column14,
+		Column15,
+		Column16,
+		Column17,
+		Column18,
+		Column19,
+		Column21,
+		Column22,
+		Column23,
+		Column24,
+		Column25,
+		Column26,
+		Column27,
+		Column28,
+		Column29,
+		Column31,
+		Column32,
+		Column33,
+		Column34,
+		Column35,
+		Column36,
+		Column37,
+		Column38,
+		Column39,
+		Column40
+	)
+	SELECT 
+		Column1,
+		Column2,
+		Column3,
+		Column4,
+		Column5,
+		Column6,
+		Column7,
+		Column8,
+		Column9,
+		Column10,
+		Column11,
+		Column12,
+		Column13,
+		Column14,
+		Column15,
+		Column16,
+		Column17,
+		Column18,
+		Column19,
+		Column21,
+		Column22,
+		Column23,
+		Column24,
+		Column25,
+		Column26,
+		Column27,
+		Column28,
+		Column29,
+		Column31,
+		Column32,
+		Column33,
+		Column34,
+		Column35,
+		Column36,
+		Column37,
+		Column38,
+		Column39,
+		Column40
+	FROM BulkCopyCatTestsSource.dbo.PerformanceSource
+
+GO
 
 
 
@@ -166,4 +294,47 @@ CREATE TABLE ComplexDestinationThree
 	ComplexDestinationOneForeignKey INT FOREIGN KEY REFERENCES ComplexDestinationOne(Id),
 	ComplexDestinationTwoForeignKey INT FOREIGN KEY REFERENCES ComplexDestinationTwo(Id),
 	ComplexColumnOne NVARCHAR(1000)
+)
+
+CREATE TABLE PerformanceDestination
+(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Column1 NVARCHAR(1000),
+	Column2 NVARCHAR(1000),
+	Column3 NVARCHAR(1000),
+	Column4 NVARCHAR(1000),
+	Column5 NVARCHAR(1000),
+	Column6 NVARCHAR(1000),
+	Column7 NVARCHAR(1000),
+	Column8 NVARCHAR(1000),
+	Column9 NVARCHAR(1000),
+	Column10 NVARCHAR(1000),
+	Column11 NVARCHAR(1000),
+	Column12 NVARCHAR(1000),
+	Column13 NVARCHAR(1000),
+	Column14 NVARCHAR(1000),
+	Column15 NVARCHAR(1000),
+	Column16 NVARCHAR(1000),
+	Column17 NVARCHAR(1000),
+	Column18 NVARCHAR(1000),
+	Column19 NVARCHAR(1000),
+	Column21 NVARCHAR(1000),
+	Column22 NVARCHAR(1000),
+	Column23 NVARCHAR(1000),
+	Column24 NVARCHAR(1000),
+	Column25 NVARCHAR(1000),
+	Column26 NVARCHAR(1000),
+	Column27 NVARCHAR(1000),
+	Column28 NVARCHAR(1000),
+	Column29 NVARCHAR(1000),
+	Column31 NVARCHAR(1000),
+	Column32 NVARCHAR(1000),
+	Column33 NVARCHAR(1000),
+	Column34 NVARCHAR(1000),
+	Column35 NVARCHAR(1000),
+	Column36 NVARCHAR(1000),
+	Column37 NVARCHAR(1000),
+	Column38 NVARCHAR(1000),
+	Column39 NVARCHAR(1000),
+	Column40 NVARCHAR(1000)
 )
