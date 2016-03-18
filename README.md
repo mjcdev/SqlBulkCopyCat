@@ -1,6 +1,6 @@
 # SqlBulkCopyCat
 
-A Configurable wrapper around SqlBulkCopy for transferring data between SQL Server Instances for .Net applications.
+SqlBulkCopyCat(alogue), a Configurable wrapper around SqlBulkCopy for transferring data between SQL Server Instances for .Net applications.
 
 Supporting Configuration by:
 - JSON
