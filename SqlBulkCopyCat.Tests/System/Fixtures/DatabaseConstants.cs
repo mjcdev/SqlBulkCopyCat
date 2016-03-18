@@ -9,7 +9,13 @@
         public const string SimpleDestinationTable = "SimpleDestination";
         public const string DataTypesSourceTable = "DataTypesSource";
         public const string DataTypesDestinationTable = "DataTypesDestination";
-               
+        public const string ComplexSourceOneTable = "ComplexSourceOne";
+        public const string ComplexSourceTwoTable = "ComplexSourceTwo";
+        public const string ComplexSourceThreeTable = "ComplexSourceThree";
+        public const string ComplexDestinationOneTable = "ComplexDestinationOne";
+        public const string ComplexDestinationTwoTable = "ComplexDestinationTwo";
+        public const string ComplexDestinationThreeTable = "ComplexDestinationThree";
+
         public const string SourceSchema = "Source";
         public const string DestinationSchema = "Destination";
 

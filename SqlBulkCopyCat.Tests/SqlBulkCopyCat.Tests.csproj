@@ -92,6 +92,7 @@
     <Compile Include="System\DirectoryConstants.cs" />
     <Compile Include="System\Fixtures\DatabaseConstants.cs" />
     <Compile Include="System\Fixtures\SqlBulkCopyCatTestsFixture.cs" />
+    <Compile Include="System\SqlBulkCopyCatComplexTests.cs" />
     <Compile Include="System\SqlBulkCopyCatDataTypeTests.cs" />
     <Compile Include="System\SqlTransactionTests.cs" />
     <Compile Include="System\SqlFile.cs" />
@@ -133,6 +134,9 @@
     <Content Include="Model\Config\Deserialization\Xml\TestFiles\SqlBulkCopySettings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="System\Configs\ComplexOneRecord.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="System\Configs\DataTypesOneRecord.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -158,6 +162,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="System\Configs\SimpleOneRecord.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System\Scripts\ComplexOneRecord.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="System\Scripts\DataTypesOneRecord.sql">
