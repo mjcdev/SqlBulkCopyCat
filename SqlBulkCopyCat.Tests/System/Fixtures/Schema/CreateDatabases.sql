@@ -31,15 +31,28 @@ CREATE TABLE Source.SimpleSource
 	SourceColumn NVARCHAR(1000)
 )
 
+
+CREATE TABLE DataTypesSource
+(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	NvarcharType NVARCHAR(1000),
+	VarcharType VARCHAR(1000),
+	CharType CHAR(1000),
+	DecimalType DECIMAL,
+	FloatType FLOAT,
+	IntType INT,
+	BigIntType BIGINT,
+	BitType BIT,
+	DateType DATE,
+	DateTimeType DATETIME,
+	VarbinaryType VARBINARY(MAX)
+)
+
 GO
 
 CREATE VIEW SimpleSourceView AS SELECT SourceColumn AS SourceViewColumn FROM SimpleSource
 
 GO
-
-
-
-
 
 
 
@@ -77,4 +90,20 @@ CREATE TABLE Destination.SimpleDestination
 (
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	DestinationColumn NVARCHAR(1000)
+)
+
+CREATE TABLE DataTypesDestination
+(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	NvarcharType NVARCHAR(1000),
+	VarcharType VARCHAR(1000),
+	CharType CHAR(1000),
+	DecimalType DECIMAL,
+	FloatType FLOAT,
+	IntType INT,
+	BigIntType BIGINT,
+	BitType BIT,
+	DateType DATE,
+	DateTimeType DATETIME,
+	VarbinaryType VARBINARY(MAX)
 )

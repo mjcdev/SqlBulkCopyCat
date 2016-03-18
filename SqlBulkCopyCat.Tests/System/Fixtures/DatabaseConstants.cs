@@ -7,6 +7,8 @@
                
         public const string SimpleSourceTable = "SimpleSource";
         public const string SimpleDestinationTable = "SimpleDestination";
+        public const string DataTypesSourceTable = "DataTypesSource";
+        public const string DataTypesDestinationTable = "DataTypesDestination";
                
         public const string SourceSchema = "Source";
         public const string DestinationSchema = "Destination";
