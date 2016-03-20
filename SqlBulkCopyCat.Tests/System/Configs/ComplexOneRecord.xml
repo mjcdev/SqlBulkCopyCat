@@ -4,12 +4,14 @@
   <DestinationConnectionString>DestinationConnectionString</DestinationConnectionString>
   <TableMappings>
     <TableMapping>
-      <Source>ComplexSourceOne</Source>
-      <Destination>ComplexDestinationOne</Destination>
+      <Source>ComplexSourceThree</Source>
+      <Destination>ComplexDestinationThree</Destination>
+      <Ordinal>3</Ordinal>
     </TableMapping>
     <TableMapping>
       <Source>ComplexSourceTwo</Source>
       <Destination>ComplexDestinationTwo</Destination>
+      <Ordinal>2</Ordinal>
       <ColumnMappings>
         <ColumnMapping>
           <Source>Id</Source>
@@ -58,8 +60,9 @@
       </ColumnMappings>
     </TableMapping>
     <TableMapping>
-      <Source>ComplexSourceThree</Source>
-      <Destination>ComplexDestinationThree</Destination>
+      <Source>ComplexSourceOne</Source>
+      <Destination>ComplexDestinationOne</Destination>
+      <Ordinal>1</Ordinal>
     </TableMapping>
   </TableMappings>
 </SqlBulkCopyCatConfig>

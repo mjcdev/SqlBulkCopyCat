@@ -12,10 +12,23 @@ namespace SqlBulkCopyCat.Model.Config
         private const string ColumnSeperator = ", ";
 
         private List<ColumnMapping> _columnMappings = new List<ColumnMapping>();
+        private int _ordinal = 0;
 
         public string Source { get; set; }
 
         public string Destination { get; set; }
+
+        public int Ordinal
+        {
+            get
+            {
+                return _ordinal;
+            }
+            set
+            {
+                _ordinal = value;
+            }
+        }
 
         public List<ColumnMapping> ColumnMappings
         {

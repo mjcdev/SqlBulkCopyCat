@@ -57,5 +57,15 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
 
             SqlBulkCopySettingsAssertions(config);
         }
+
+        [Fact]
+        public void Deserialize_Success_Ordinal()
+        {
+            ISqlBulkCopyCatConfigDeserializer deserializer = new SqlBulkCopyCatConfigJsonFileDeserializer();
+
+            var config = deserializer.Deserialize(TestFileLocation("Ordinal.json"));
+
+            OrdinalConfigAssertions(config);
+        }
     }
 }

@@ -1,0 +1,19 @@
+{
+  "SourceConnectionString": "Server = (local)\\SQLExpress;Trusted_Connection=True;Initial Catalog=Source;",
+  "DestinationConnectionString": "Server = (local)\\SQLExpress;Trusted_Connection=True;Initial Catalog=Destination;",
+  "SourceInitialCatalog": "SourceOverride",
+  "DestinationInitialCatalog": "DestinationOverride",
+  "TableMappings": [
+    {
+      "Source": "SourceTable",
+      "Destination": "DestinationTable",
+      "Ordinal": 2,
+      "ColumnMappings": [
+        {
+          "Source": "SourceColumn",
+          "Destination": "DestinationColumn"
+        }
+      ]
+    }
+  ]
+}

@@ -28,7 +28,7 @@ namespace SqlBulkCopyCat
                     writeConnection.Open();
                     sqlTransaction = writeConnection.BeginTransaction(_config);
 
-                    foreach (var tableMapping in _config.TableMappings)
+                    foreach (var tableMapping in _config.TableMappings.OrderBy(tm => tm.Ordinal))
                     {
                         using (var readConnection = new SqlConnection(_config.SourceConnectionString))
                         using (var reader = readConnection.ExecuteReader(tableMapping.BuildSelectSql()))
