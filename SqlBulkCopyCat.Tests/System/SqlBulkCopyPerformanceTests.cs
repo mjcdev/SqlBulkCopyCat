@@ -21,7 +21,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
         [Trait("Category", "Performance")]
         public void Copy_Performance()
         {
-            var dataSetup = MethodTimer(() => SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts,"Performance.sql"), ConnectionString));
+            var dataSetup = MethodTimer(() => SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts,"Performance.sql"), SourceConnectionString));
 
             _testOutputHelper.WriteLine(string.Format("{0} seconds for Test Data Setup.", dataSetup.TotalSeconds.ToString()));
 
@@ -33,8 +33,8 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             _testOutputHelper.WriteLine(string.Format("{0} seconds for Copy.", copy.TotalSeconds.ToString()));
 
-            RowCountFor(DatabaseConstants.SourceDatabase, DatabaseConstants.PerformanceSourceTable).Should().Be(1048576);
-            RowCountFor(DatabaseConstants.DestinationDatabase, DatabaseConstants.PerformanceDestinationTable).Should().Be(1048576);
+            RowCountFor(ConnectionType.Source, DatabaseConstants.SourceDatabase, DatabaseConstants.PerformanceSourceTable).Should().Be(1048576);
+            RowCountFor(ConnectionType.Destination, DatabaseConstants.DestinationDatabase, DatabaseConstants.PerformanceDestinationTable).Should().Be(1048576);
         }
 
         private TimeSpan MethodTimer(Action action)

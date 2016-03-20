@@ -11,7 +11,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
         [Fact]
         public void Copy_SqlTransactionFail_True()
         {
-            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts,"SimpleOneRecord.sql"), ConnectionString);
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts,"SimpleOneRecord.sql"), SourceConnectionString);
 
             var config = BuildConfigFor("SqlTransactionTrue.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
@@ -19,14 +19,14 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             Assert.Throws<SqlException>(() => sqlBulkCopyCat.Copy());
 
-            RowCountFor(DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceTable).Should().Be(1);
-            RowCountFor(DatabaseConstants.DestinationDatabase, DatabaseConstants.SimpleDestinationTable).Should().Be(0);
+            RowCountFor(ConnectionType.Source, DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceTable).Should().Be(1);
+            RowCountFor(ConnectionType.Destination, DatabaseConstants.DestinationDatabase, DatabaseConstants.SimpleDestinationTable).Should().Be(0);
         }
 
         [Fact]
         public void Copy_SqlTransactionFail_False()
         {
-            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts, "SimpleOneRecord.sql"), ConnectionString);
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts, "SimpleOneRecord.sql"), SourceConnectionString);
 
             var config = BuildConfigFor("SqlTransactionFalse.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
@@ -34,14 +34,14 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             Assert.Throws<SqlException>(() => sqlBulkCopyCat.Copy());
 
-            RowCountFor(DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceTable).Should().Be(1);
-            RowCountFor(DatabaseConstants.DestinationDatabase, DatabaseConstants.SimpleDestinationTable).Should().Be(1);
+            RowCountFor(ConnectionType.Source, DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceTable).Should().Be(1);
+            RowCountFor(ConnectionType.Destination, DatabaseConstants.DestinationDatabase, DatabaseConstants.SimpleDestinationTable).Should().Be(1);
         }
 
         [Fact]
         public void Copy_SqlTransactionFail_Omitted()
         {
-            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts, "SimpleOneRecord.sql"), ConnectionString);
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts, "SimpleOneRecord.sql"), SourceConnectionString);
 
             var config = BuildConfigFor("SqlTransactionOmitted.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
@@ -49,8 +49,8 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             Assert.Throws<SqlException>(() => sqlBulkCopyCat.Copy());
 
-            RowCountFor(DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceTable).Should().Be(1);
-            RowCountFor(DatabaseConstants.DestinationDatabase, DatabaseConstants.SimpleDestinationTable).Should().Be(1);
+            RowCountFor(ConnectionType.Source, DatabaseConstants.SourceDatabase, DatabaseConstants.SimpleSourceTable).Should().Be(1);
+            RowCountFor(ConnectionType.Destination, DatabaseConstants.DestinationDatabase, DatabaseConstants.SimpleDestinationTable).Should().Be(1);
         }
     }
 }

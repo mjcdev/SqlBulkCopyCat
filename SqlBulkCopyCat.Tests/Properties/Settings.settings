@@ -5,5 +5,11 @@
     <Setting Name="ConnectionString" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Server=(local)\SQLExpress;Trusted_Connection=True;</Value>
     </Setting>
+    <Setting Name="DestinationConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server=(local)\SQLExpress;Trusted_Connection=True;</Value>
+    </Setting>
+    <Setting Name="SourceConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server=(local)\SQLExpress;Trusted_Connection=True;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

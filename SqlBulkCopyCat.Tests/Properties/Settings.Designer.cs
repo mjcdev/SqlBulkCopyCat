@@ -31,5 +31,23 @@ namespace SqlBulkCopyCat.Tests.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=(local)\\SQLExpress;Trusted_Connection=True;")]
+        public string DestinationConnectionString {
+            get {
+                return ((string)(this["DestinationConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=(local)\\SQLExpress;Trusted_Connection=True;")]
+        public string SourceConnectionString {
+            get {
+                return ((string)(this["SourceConnectionString"]));
+            }
+        }
     }
 }

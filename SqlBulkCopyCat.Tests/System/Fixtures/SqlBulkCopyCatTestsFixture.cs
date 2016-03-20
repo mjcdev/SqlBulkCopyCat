@@ -7,16 +7,19 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 {
     public class SqlBulkCopyCatTestsFixture : IDisposable
     {
-        private string ConnectionString = Properties.Settings.Default["ConnectionString"].ToString();
+        private string SourceConnectionString = Properties.Settings.Default["SourceConnectionString"].ToString();
+        private string DestinationConnectionString = Properties.Settings.Default["DestinationConnectionString"].ToString();
 
         public SqlBulkCopyCatTestsFixture()
         {
-            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Schema, "CreateDatabases.sql"), ConnectionString);            
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Schema, "CreateSourceDatabase.sql"), SourceConnectionString);
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Schema, "CreateDestinationDatabase.sql"), DestinationConnectionString);
         }
 
         public void Dispose()
         {
-            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Schema, "DropDatabases.sql"), ConnectionString);
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Schema, "DropSourceDatabase.sql"), SourceConnectionString);
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Schema, "DropDestinationDatabase.sql"), DestinationConnectionString);
         }
     }
 }

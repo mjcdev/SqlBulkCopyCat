@@ -10,7 +10,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
         [Fact]
         public void Copy_DataTypes_OneRecord()
         {
-            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts,"DataTypesOneRecord.sql"), ConnectionString);
+            SqlFile.ExecuteNonQuery(Path.Combine(DirectoryConstants.Scripts,"DataTypesOneRecord.sql"), SourceConnectionString);
 
             var config = BuildConfigFor("DataTypesOneRecord.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
@@ -18,8 +18,8 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             sqlBulkCopyCat.Copy();
 
-            RowCountFor(DatabaseConstants.SourceDatabase, DatabaseConstants.DataTypesSourceTable).Should().Be(1);
-            RowCountFor(DatabaseConstants.DestinationDatabase, DatabaseConstants.DataTypesDestinationTable).Should().Be(1);
+            RowCountFor(ConnectionType.Source, DatabaseConstants.SourceDatabase, DatabaseConstants.DataTypesSourceTable).Should().Be(1);
+            RowCountFor(ConnectionType.Destination, DatabaseConstants.DestinationDatabase, DatabaseConstants.DataTypesDestinationTable).Should().Be(1);
         }       
     }
 }

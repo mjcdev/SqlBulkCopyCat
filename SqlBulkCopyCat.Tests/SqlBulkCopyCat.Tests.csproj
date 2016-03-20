@@ -165,10 +165,16 @@
     <Content Include="System\Configs\SimpleOneRecordSchema.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="System\Fixtures\Schema\CreateDatabases.sql">
+    <Content Include="System\Fixtures\Schema\CreateSourceDatabase.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="System\Fixtures\Schema\DropDatabases.sql">
+    <Content Include="System\Fixtures\Schema\CreateDestinationDatabase.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System\Fixtures\Schema\DropSourceDatabase.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="System\Fixtures\Schema\DropDestinationDatabase.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="System\Configs\SimpleOneRecord.xml">
