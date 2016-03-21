@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SqlBulkCopyCat")]
-[assembly: AssemblyDescription("SqlBulkCopyCat")]
+[assembly: AssemblyDescription("SqlBulkCopyCat(alogue) - a configurable wrapper around the SqlBulkCopy .net Class supporting copying of data between databases.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("mjcdev")]
 [assembly: AssemblyProduct("SqlBulkCopyCat")]
