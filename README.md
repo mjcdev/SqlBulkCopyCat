@@ -13,7 +13,7 @@ Supporting Configuration by:
 ### To Do
 
 - [X] Initial Catalog outside of Connection String Configuration
-- [ ] Table Order
+- [X] Table Order
 - [ ] Nuget Package
 - [ ] Notify after X Event Handler
 - [ ] Extensibility Points
