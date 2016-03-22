@@ -14,7 +14,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             var config = BuildConfigFor("DataTypesOneRecord.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
-            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+            var sqlBulkCopyCat = new CopyCat(config);
 
             sqlBulkCopyCat.Copy();
 

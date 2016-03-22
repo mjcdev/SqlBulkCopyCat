@@ -18,11 +18,11 @@ namespace SqlBulkCopyCat.Tests.System
             Destination,
         }
 
-        protected SqlBulkCopyCatConfig BuildConfigFor(string fileName, string sourceDatabase, string destinationDatabase)
+        protected CopyCatConfig BuildConfigFor(string fileName, string sourceDatabase, string destinationDatabase)
         {
             var configFilePath = Path.Combine(DirectoryConstants.Configs, fileName);
 
-            var config = new SqlBulkCopyCatConfigBuilder().FromXmlFile(configFilePath);
+            var config = new CopyCatConfigBuilder().FromXmlFile(configFilePath);
 
             config.SourceConnectionString = ConnectionStringBuilder(ConnectionType.Source, sourceDatabase);
             config.DestinationConnectionString = ConnectionStringBuilder(ConnectionType.Destination, destinationDatabase);

@@ -15,7 +15,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             var config = BuildConfigFor("SqlTransactionTrue.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
-            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+            var sqlBulkCopyCat = new CopyCat(config);
 
             Assert.Throws<SqlException>(() => sqlBulkCopyCat.Copy());
 
@@ -30,7 +30,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             var config = BuildConfigFor("SqlTransactionFalse.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
-            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+            var sqlBulkCopyCat = new CopyCat(config);
 
             Assert.Throws<SqlException>(() => sqlBulkCopyCat.Copy());
 
@@ -45,7 +45,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             var config = BuildConfigFor("SqlTransactionOmitted.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
-            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+            var sqlBulkCopyCat = new CopyCat(config);
 
             Assert.Throws<SqlException>(() => sqlBulkCopyCat.Copy());
 

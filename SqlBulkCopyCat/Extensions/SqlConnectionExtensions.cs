@@ -5,11 +5,11 @@ namespace SqlBulkCopyCat.Extensions
 {
     internal static class SqlConnectionExtensions
     {
-        public static SqlTransaction BeginTransaction(this SqlConnection sqlConnection, SqlBulkCopyCatConfig sqlBulkCopyCatConfig)
+        public static SqlTransaction BeginTransaction(this SqlConnection sqlConnection, CopyCatConfig copyCatConfig)
         {
             SqlTransaction sqlTransaction = null;
 
-            if (sqlBulkCopyCatConfig != null && sqlBulkCopyCatConfig.SqlTransaction.HasValue && sqlBulkCopyCatConfig.SqlTransaction.Value)
+            if (copyCatConfig != null && copyCatConfig.SqlTransaction.HasValue && copyCatConfig.SqlTransaction.Value)
             {
                 sqlTransaction = sqlConnection.BeginTransaction();
             }

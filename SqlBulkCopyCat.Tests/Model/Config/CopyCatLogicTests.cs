@@ -6,14 +6,14 @@ using Xunit;
 
 namespace SqlBulkCopyCat.Tests.Model.Config
 {
-    public class SqlBulkCopyCatLogicTests
+    public class CopyCatLogicTests
     {
         private string DummyConnectionString = @"Server = (local)\SQLExpress;Trusted_Connection=True;Initial Catalog=DummyDatabase";
         
         [Fact]
         public void NullCoalesceTableMappings_Null()
         {
-            var config = new SqlBulkCopyCatConfig { TableMappings = null };
+            var config = new CopyCatConfig { TableMappings = null };
 
             config.TableMappings.Should().HaveCount(0);
             config.TableMappings.Should().NotBeNull();
@@ -22,7 +22,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config
         [Fact]
         public void NullCoalesceColumnMappings_NotNull()
         {
-            var config = new SqlBulkCopyCatConfig
+            var config = new CopyCatConfig
             {
                 TableMappings = new List<TableMapping>
                 {
@@ -37,7 +37,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config
         [Fact]
         public void SourceInitialCatalogNull_ConnectionString()
         {
-            var config = new SqlBulkCopyCatConfig
+            var config = new CopyCatConfig
             {
                 SourceConnectionString = DummyConnectionString,
                 SourceInitialCatalog = null
@@ -49,7 +49,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config
         [Fact]
         public void SourceInitialCatalogNotNull_ConnectionString()
         {
-            var config = new SqlBulkCopyCatConfig
+            var config = new CopyCatConfig
             {
                 SourceConnectionString = DummyConnectionString,
                 SourceInitialCatalog = "SourceInitialCatalogOverride"
@@ -61,7 +61,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config
         [Fact]
         public void DestinationInitialCatalogNull_ConnectionString()
         {
-            var config = new SqlBulkCopyCatConfig
+            var config = new CopyCatConfig
             {
                 DestinationConnectionString = DummyConnectionString,
                 DestinationInitialCatalog = null
@@ -73,7 +73,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config
         [Fact]
         public void DestinationInitialCatalogNotNull_ConnectionString()
         {
-            var config = new SqlBulkCopyCatConfig
+            var config = new CopyCatConfig
             {
                 DestinationConnectionString = DummyConnectionString,
                 DestinationInitialCatalog = "DestinationInitialCatalogOverride"

@@ -1,14 +1,11 @@
-﻿using FluentAssertions;
-using SqlBulkCopyCat.Model.Config.Deserialization.Interfaces;
+﻿using SqlBulkCopyCat.Model.Config.Deserialization.Interfaces;
 using SqlBulkCopyCat.Model.Config.Deserialization.Json;
 using SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract;
-using System.IO;
-using System.Linq;
 using Xunit;
 
 namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
 {
-    public class SqlBulkCopyCatConfigJsonFileDeserializerTests : AbstractSqlBulkCopyCatConfigDeserializerTests
+    public class CopyCatConfigJsonFileDeserializerTests : AbstractCopyCatConfigDeserializerTests
     {
         protected override string TestFilesDirectory
         {
@@ -21,7 +18,7 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
         [Fact]
         public void Deserialize_Success_Simple()
         {
-            ISqlBulkCopyCatConfigDeserializer deserializer = new SqlBulkCopyCatConfigJsonFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigJsonFileDeserializer();
 
             var config = deserializer.Deserialize(TestFileLocation("Simple.json"));
 
@@ -31,7 +28,7 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
         [Fact]
         public void Deserialize_Success_EmptyColumnMappings()
         {
-            ISqlBulkCopyCatConfigDeserializer deserializer = new SqlBulkCopyCatConfigJsonFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigJsonFileDeserializer();
 
             var config = deserializer.Deserialize(TestFileLocation("EmptyColumnMappings.json"));
 
@@ -41,7 +38,7 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
         [Fact]
         public void Deserialize_Success_NoColumnMappings()
         {
-            ISqlBulkCopyCatConfigDeserializer deserializer = new SqlBulkCopyCatConfigJsonFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigJsonFileDeserializer();
 
             var config = deserializer.Deserialize(TestFileLocation("NoColumnMappings.json"));
 
@@ -51,7 +48,7 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
         [Fact]
         public void Deserialize_Success_SqlBulkCopySettings()
         {
-            ISqlBulkCopyCatConfigDeserializer deserializer = new SqlBulkCopyCatConfigJsonFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigJsonFileDeserializer();
 
             var config = deserializer.Deserialize(TestFileLocation("SqlBulkCopySettings.json"));
 
@@ -61,7 +58,7 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Json
         [Fact]
         public void Deserialize_Success_Ordinal()
         {
-            ISqlBulkCopyCatConfigDeserializer deserializer = new SqlBulkCopyCatConfigJsonFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigJsonFileDeserializer();
 
             var config = deserializer.Deserialize(TestFileLocation("Ordinal.json"));
 

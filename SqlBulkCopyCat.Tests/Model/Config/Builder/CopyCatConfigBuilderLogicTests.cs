@@ -7,19 +7,19 @@ using FluentAssertions;
 
 namespace SqlBulkCopyCat.Tests.Model
 {
-    public class SqlBulkCopyCatConfigBuilderLogicTests
+    public class CopyCatConfigBuilderLogicTests
     {
         private const string FilePath = "FilePath";
 
         [Fact]
         public void FromXmlFile()
         {            
-            var config = new SqlBulkCopyCatConfig();
-            var mock = new Mock<ISqlBulkCopyCatConfigDeserializer>();
+            var config = new CopyCatConfig();
+            var mock = new Mock<ICopyCatConfigDeserializer>();
             mock.Setup(ds => ds.Deserialize(FilePath)).Returns(config);
-            ISqlBulkCopyCatConfigDeserializer mockDeserializer = mock.Object;
+            ICopyCatConfigDeserializer mockDeserializer = mock.Object;
 
-            var builder = new SqlBulkCopyCatConfigBuilder(mockDeserializer, null);
+            var builder = new CopyCatConfigBuilder(mockDeserializer, null);
 
             var actual = builder.FromXmlFile(FilePath);
             
@@ -32,12 +32,12 @@ namespace SqlBulkCopyCat.Tests.Model
         [Fact]
         public void FromJsonFile()
         {
-            var config = new SqlBulkCopyCatConfig();
-            var mock = new Mock<ISqlBulkCopyCatConfigDeserializer>();
+            var config = new CopyCatConfig();
+            var mock = new Mock<ICopyCatConfigDeserializer>();
             mock.Setup(ds => ds.Deserialize(FilePath)).Returns(config);
-            ISqlBulkCopyCatConfigDeserializer mockDeserializer = mock.Object;
+            ICopyCatConfigDeserializer mockDeserializer = mock.Object;
 
-            var builder = new SqlBulkCopyCatConfigBuilder(null, mockDeserializer);
+            var builder = new CopyCatConfigBuilder(null, mockDeserializer);
 
             var actual = builder.FromJsonFile(FilePath);
 

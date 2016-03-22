@@ -75,11 +75,11 @@
     <Compile Include="Extensions\SqlBulkCopyExtensionsLogicTests.cs" />
     <Compile Include="Extensions\SqlConnectionExtensionsLogicTests.cs" />
     <Compile Include="Model\Config\ColumnMappingLogicTests.cs" />
-    <Compile Include="Model\Config\Deserialization\Abstract\AbstractSqlBulkCopyCatConfigDeserializerTests.cs" />
-    <Compile Include="Model\Config\Deserialization\Json\SqlBulkCopyCatConfigJsonFileDeserializerTests.cs" />
-    <Compile Include="Model\Config\Deserialization\Xml\SqlBulkCopyCatConfigXmlFileDeserializerTests.cs" />
-    <Compile Include="Model\Config\Builder\SqlBulkCopyCatConfigBuilderLogicTests.cs" />
-    <Compile Include="Model\Config\SqlBulkCopyCatLogicTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Abstract\AbstractCopyCatConfigDeserializerTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Json\CopyCatConfigJsonFileDeserializerTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Xml\CopyCatConfigXmlFileDeserializerTests.cs" />
+    <Compile Include="Model\Config\Builder\CopyCatConfigBuilderLogicTests.cs" />
+    <Compile Include="Model\Config\CopyCatLogicTests.cs" />
     <Compile Include="Model\Config\SqlBulkCopySettingsLogicTests.cs" />
     <Compile Include="Model\Config\TableMappingLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,18 +137,23 @@
     </Content>
     <Content Include="Model\Config\Deserialization\Xml\TestFiles\Simple.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Model\Config\Deserialization\Xml\TestFiles\SqlBulkCopySettings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="System\Configs\ComplexOneRecord.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="System\Configs\DataTypesOneRecord.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="System\Configs\Performance.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="System\Configs\SqlTransactionFalse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -158,6 +163,7 @@
     </Content>
     <Content Include="System\Configs\SqlTransactionTrue.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="System\Configs\SimpleOneRecordView.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

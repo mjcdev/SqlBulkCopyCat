@@ -14,7 +14,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             var config = BuildConfigFor("SimpleOneRecord.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
-            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+            var sqlBulkCopyCat = new CopyCat(config);
 
             sqlBulkCopyCat.Copy();
 
@@ -29,7 +29,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             var config = BuildConfigFor("SimpleOneRecordView.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
-            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+            var sqlBulkCopyCat = new CopyCat(config);
 
             sqlBulkCopyCat.Copy();
 
@@ -45,7 +45,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             var config = BuildConfigFor("SimpleOneRecordSchema.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
-            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+            var sqlBulkCopyCat = new CopyCat(config);
 
             sqlBulkCopyCat.Copy();
 

@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 namespace SqlBulkCopyCat.Model.Config
 {
     [Serializable]
-    public class SqlBulkCopyCatConfig
+    public class CopyCatConfig
     {
         private List<TableMapping> _tableMappings = new List<TableMapping>();
 

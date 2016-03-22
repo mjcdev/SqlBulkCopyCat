@@ -8,13 +8,13 @@ using System.Linq;
 
 namespace SqlBulkCopyCat
 {
-    public class SqlBulkCopyCat
+    public class CopyCat
     {
-        private readonly SqlBulkCopyCatConfig _config;
+        private readonly CopyCatConfig _config;
 
-        public SqlBulkCopyCat(SqlBulkCopyCatConfig sqlBulkCopyCatConfig)
+        public CopyCat(CopyCatConfig copyCatConfig)
         {
-            _config = sqlBulkCopyCatConfig;            
+            _config = copyCatConfig;            
         }
 
         public void Copy()

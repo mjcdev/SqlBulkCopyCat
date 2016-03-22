@@ -4,14 +4,14 @@ using SqlBulkCopyCat.Model.Config.Deserialization.Xml;
 
 namespace SqlBulkCopyCat.Model.Config.Builder
 {
-    public class SqlBulkCopyCatConfigBuilder
+    public class CopyCatConfigBuilder
     {
-        private ISqlBulkCopyCatConfigDeserializer _xmlFileDeserializer;
-        private ISqlBulkCopyCatConfigDeserializer _jsonFileDeserializer;
+        private ICopyCatConfigDeserializer _xmlFileDeserializer;
+        private ICopyCatConfigDeserializer _jsonFileDeserializer;
 
-        private SqlBulkCopyCatConfig _config = new SqlBulkCopyCatConfig();
+        private CopyCatConfig _config = new CopyCatConfig();
 
-        public SqlBulkCopyCatConfig Config
+        public CopyCatConfig Config
         {
             get
             {
@@ -23,24 +23,24 @@ namespace SqlBulkCopyCat.Model.Config.Builder
             }
         }
 
-        public SqlBulkCopyCatConfigBuilder()
-            : this(new SqlBulkCopyCatConfigXmlFileDeserializer(), new SqlBulkCopyCatConfigJsonFileDeserializer())
+        public CopyCatConfigBuilder()
+            : this(new CopyCatConfigXmlFileDeserializer(), new CopyCatConfigJsonFileDeserializer())
         {
         }
 
-        internal SqlBulkCopyCatConfigBuilder(ISqlBulkCopyCatConfigDeserializer xmlFileDeserializer, ISqlBulkCopyCatConfigDeserializer jsonFileDeserializer)
+        internal CopyCatConfigBuilder(ICopyCatConfigDeserializer xmlFileDeserializer, ICopyCatConfigDeserializer jsonFileDeserializer)
         {
             _xmlFileDeserializer = xmlFileDeserializer;
             _jsonFileDeserializer = jsonFileDeserializer;
         }
 
-        public SqlBulkCopyCatConfig FromXmlFile(string filePath)
+        public CopyCatConfig FromXmlFile(string filePath)
         {
             Config = _xmlFileDeserializer.Deserialize(filePath);
             return Config;
         }
 
-        public SqlBulkCopyCatConfig FromJsonFile(string filePath)
+        public CopyCatConfig FromJsonFile(string filePath)
         {
             Config = _jsonFileDeserializer.Deserialize(filePath);
             return Config;

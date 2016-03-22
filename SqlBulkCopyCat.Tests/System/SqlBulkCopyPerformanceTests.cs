@@ -27,7 +27,7 @@ namespace SqlBulkCopyCat.Tests.System.Fixtures
 
             var config = BuildConfigFor("Performance.xml", DatabaseConstants.SourceDatabase, DatabaseConstants.DestinationDatabase);
 
-            var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+            var sqlBulkCopyCat = new CopyCat(config);
 
             var copy = MethodTimer(() => sqlBulkCopyCat.Copy());
 

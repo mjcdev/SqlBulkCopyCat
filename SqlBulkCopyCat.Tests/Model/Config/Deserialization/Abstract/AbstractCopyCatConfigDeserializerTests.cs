@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
 {
-    public abstract class AbstractSqlBulkCopyCatConfigDeserializerTests
+    public abstract class AbstractCopyCatConfigDeserializerTests
     {
         protected abstract string TestFilesDirectory
         {
@@ -18,7 +18,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             return Path.Combine(TestFilesDirectory, testFileName);
         }
 
-        protected void SimpleConfigAssertions(SqlBulkCopyCatConfig config)
+        protected void SimpleConfigAssertions(CopyCatConfig config)
         {
             config.SourceConnectionString.Should().Be(@"Data Source=(local)\SQLExpress;Initial Catalog=SourceOverride;Integrated Security=True");
             config._sourceConnectionString.Should().Be(@"Server = (local)\SQLExpress;Trusted_Connection=True;Initial Catalog=Source;");
@@ -38,7 +38,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             columnMapping.Source.Should().Be("SourceColumn");
         }
 
-        protected void EmptyColumnMappingsConfigAssertions(SqlBulkCopyCatConfig config)
+        protected void EmptyColumnMappingsConfigAssertions(CopyCatConfig config)
         {
             config.SourceConnectionString.Should().Be("SourceConnectionString");
             config.DestinationConnectionString.Should().Be("DestinationConnectionString");
@@ -50,7 +50,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             tableMapping.ColumnMappings.Should().HaveCount(0);
         }
 
-        protected void NoColumnMappingsConfigAssertions(SqlBulkCopyCatConfig config)
+        protected void NoColumnMappingsConfigAssertions(CopyCatConfig config)
         {
             config.SourceConnectionString.Should().Be("SourceConnectionString");
             config.DestinationConnectionString.Should().Be("DestinationConnectionString");
@@ -62,7 +62,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             tableMapping.ColumnMappings.Should().HaveCount(0);
         }
 
-        protected void SqlBulkCopySettingsAssertions(SqlBulkCopyCatConfig config)
+        protected void SqlBulkCopySettingsAssertions(CopyCatConfig config)
         {
             config.SqlTransaction.Should().BeFalse();
             config.SqlBulkCopySettings.Should().NotBeNull();
@@ -75,7 +75,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             
         }
 
-        protected void OrdinalConfigAssertions(SqlBulkCopyCatConfig config)
+        protected void OrdinalConfigAssertions(CopyCatConfig config)
         {
             config.SourceConnectionString.Should().Be(@"Data Source=(local)\SQLExpress;Initial Catalog=SourceOverride;Integrated Security=True");
             config._sourceConnectionString.Should().Be(@"Server = (local)\SQLExpress;Trusted_Connection=True;Initial Catalog=Source;");

@@ -30,7 +30,7 @@ Broadly:
 - Copy.
 
 ```csharp
-var config = new SqlBulkCopyCatConfigBuilder().FromXmlFile(configFilePath);
+var config = new CopyCatConfigBuilder().FromXmlFile(configFilePath);
 
 var sqlBulkCopyCat = new SqlBulkCopyCat(config);
 
@@ -43,7 +43,7 @@ You can easily copy whole tables...
 
 ```xml
 <?xml version="1.0"?>
-<SqlBulkCopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<CopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceConnectionString>Data Source=(local)\SQLExpress;Initial Catalog=BulkCopyCatSource;Integrated Security=True</SourceConnectionString>
   <DestinationConnectionString>Data Source=(local)\SQLExpress;Initial Catalog=BulkCopyCatDestination;Integrated Security=True</DestinationConnectionString>
   <TableMappings>
@@ -52,7 +52,7 @@ You can easily copy whole tables...
       <Destination>SimpleDestination</Destination>
     </TableMapping>
   </TableMappings>
-</SqlBulkCopyCatConfig>
+</CopyCatConfig>
 ```
 
 ### Column Configuration
@@ -61,7 +61,7 @@ You can easily copy whole tables...
 
 ```xml
 <?xml version="1.0"?>
-<SqlBulkCopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<CopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceConnectionString>SourceConnectionString</SourceConnectionString>
   <DestinationConnectionString>DestinationConnectionString</DestinationConnectionString>
   <TableMappings>
@@ -76,7 +76,7 @@ You can easily copy whole tables...
       </ColumnMappings>
     </TableMapping>
   </TableMappings>
-</SqlBulkCopyCatConfig>
+</CopyCatConfig>
 ```
 
 ### Settings
@@ -85,7 +85,7 @@ SqlBulkCopy configuration settings can be altered through configuration for your
 
 ```xml
 <?xml version="1.0"?>
-<SqlBulkCopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<CopyCatConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SqlBulkCopySettings>
     <BatchSize>300</BatchSize>
     <BulkCopyTimeout>1000</BulkCopyTimeout>
@@ -94,7 +94,7 @@ SqlBulkCopy configuration settings can be altered through configuration for your
   </SqlBulkCopySettings>
   <TableMappings />
   <SqlTransaction>false</SqlTransaction>
-</SqlBulkCopyCatConfig>
+</CopyCatConfig>
 ```
 
 ## License
