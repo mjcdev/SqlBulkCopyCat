@@ -7,6 +7,8 @@ Supporting Configuration by:
 - XML
 - Config Domain Objects
 
+[Now Available on NuGet](https://www.nuget.org/packages/SqlBulkCopyCat/)
+
 [Twitter](https://twitter.com/mikechilds88) :+1:
 [Blog](http://mjcdev.co.uk) :+1:
 
@@ -14,7 +16,7 @@ Supporting Configuration by:
 
 - [X] Initial Catalog outside of Connection String Configuration
 - [X] Table Order
-- [ ] Nuget Package
+- [X] Nuget Package
 - [ ] Notify after X Event Handler
 - [ ] Extensibility Points
 
