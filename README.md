@@ -34,9 +34,9 @@ Broadly:
 ```csharp
 var config = new CopyCatConfigBuilder().FromXmlFile(configFilePath);
 
-var sqlBulkCopyCat = new SqlBulkCopyCat(config);
+var copyCat = new CopyCat(config);
 
-sqlBulkCopyCat.Copy();
+copyCat.Copy();
 ```
 
 ### Table Configuration
