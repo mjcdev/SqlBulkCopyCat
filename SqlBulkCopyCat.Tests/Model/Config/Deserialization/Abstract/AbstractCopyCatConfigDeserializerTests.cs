@@ -3,9 +3,11 @@ using SqlBulkCopyCat.Model.Config;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using Xunit;
 
 namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
 {
+    [Collection("Deserialization")]
     public abstract class AbstractCopyCatConfigDeserializerTests
     {
         protected abstract string TestFilesDirectory

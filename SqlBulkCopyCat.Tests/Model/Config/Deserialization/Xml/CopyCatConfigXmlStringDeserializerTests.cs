@@ -6,7 +6,7 @@ using Xunit;
 
 namespace SqlBulkCopyCat.Tests.Model.Deserialization.Xml
 {
-    public class CopyCatConfigXmlFileDeserializerTests : AbstractCopyCatConfigDeserializerTests
+    public class CopyCatConfigXmlStringDeserializerTests : AbstractCopyCatConfigDeserializerTests
     {
         protected override string TestFilesDirectory
         {
@@ -19,9 +19,9 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Xml
         [Fact]
         public void Deserialize_Success_Simple()
         {
-            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlStringDeserializer();
 
-            var config = deserializer.Deserialize(TestFileLocation(XmlTestFiles.Simple));
+            var config = deserializer.Deserialize(ReadStringFromTestFile(XmlTestFiles.Simple));
 
             SimpleConfigAssertions(config);
         }
@@ -29,9 +29,9 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Xml
         [Fact]
         public void Deserialize_Success_EmptyColumnMappings()
         {
-            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlStringDeserializer();
 
-            var config = deserializer.Deserialize(TestFileLocation(XmlTestFiles.EmptyColumnMappings));
+            var config = deserializer.Deserialize(ReadStringFromTestFile(XmlTestFiles.EmptyColumnMappings));
 
             EmptyColumnMappingsConfigAssertions(config);
         }
@@ -39,9 +39,9 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Xml
         [Fact]
         public void Deserialize_Success_NoColumnMappings()
         {
-            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlStringDeserializer();
 
-            var config = deserializer.Deserialize(TestFileLocation(XmlTestFiles.NoColumnMappings));
+            var config = deserializer.Deserialize(ReadStringFromTestFile(XmlTestFiles.NoColumnMappings));
 
             NoColumnMappingsConfigAssertions(config);
         }
@@ -49,9 +49,9 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Xml
         [Fact]
         public void Deserialize_Success_SqlBulkCopySettings()
         {
-            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlStringDeserializer();
 
-            var config = deserializer.Deserialize(TestFileLocation(XmlTestFiles.SqlBulkCopySettings));
+            var config = deserializer.Deserialize(ReadStringFromTestFile(XmlTestFiles.SqlBulkCopySettings));
 
             SqlBulkCopySettingsAssertions(config);
         }
@@ -59,9 +59,9 @@ namespace SqlBulkCopyCat.Tests.Model.Deserialization.Xml
         [Fact]
         public void Deserialize_Success_Ordinal()
         {
-            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlFileDeserializer();
+            ICopyCatConfigDeserializer deserializer = new CopyCatConfigXmlStringDeserializer();
 
-            var config = deserializer.Deserialize(TestFileLocation(XmlTestFiles.Ordinal));
+            var config = deserializer.Deserialize(ReadStringFromTestFile(XmlTestFiles.Ordinal));
 
             OrdinalConfigAssertions(config);
         }

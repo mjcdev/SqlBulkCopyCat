@@ -79,9 +79,11 @@
     <Compile Include="Model\Config\Deserialization\Json\CopyCatConfigJsonStringDeserializerTests.cs" />
     <Compile Include="Model\Config\Deserialization\Json\CopyCatConfigJsonFileDeserializerTests.cs" />
     <Compile Include="Model\Config\Deserialization\Json\JsonTestFiles.cs" />
+    <Compile Include="Model\Config\Deserialization\Xml\CopyCatConfigXmlStringDeserializerTests.cs" />
     <Compile Include="Model\Config\Deserialization\Xml\CopyCatConfigXmlFileDeserializerTests.cs" />
     <Compile Include="Model\Config\Builder\CopyCatConfigBuilderLogicTests.cs" />
     <Compile Include="Model\Config\CopyCatLogicTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Xml\XmlTestFiles.cs" />
     <Compile Include="Model\Config\SqlBulkCopySettingsLogicTests.cs" />
     <Compile Include="Model\Config\TableMappingLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

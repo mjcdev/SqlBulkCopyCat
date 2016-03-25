@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Json
+﻿namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Json
 {
     internal static class JsonTestFiles
     {
