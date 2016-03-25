@@ -76,7 +76,9 @@
     <Compile Include="Extensions\SqlConnectionExtensionsLogicTests.cs" />
     <Compile Include="Model\Config\ColumnMappingLogicTests.cs" />
     <Compile Include="Model\Config\Deserialization\Abstract\AbstractCopyCatConfigDeserializerTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Json\CopyCatConfigJsonStringDeserializerTests.cs" />
     <Compile Include="Model\Config\Deserialization\Json\CopyCatConfigJsonFileDeserializerTests.cs" />
+    <Compile Include="Model\Config\Deserialization\Json\JsonTestFiles.cs" />
     <Compile Include="Model\Config\Deserialization\Xml\CopyCatConfigXmlFileDeserializerTests.cs" />
     <Compile Include="Model\Config\Builder\CopyCatConfigBuilderLogicTests.cs" />
     <Compile Include="Model\Config\CopyCatLogicTests.cs" />

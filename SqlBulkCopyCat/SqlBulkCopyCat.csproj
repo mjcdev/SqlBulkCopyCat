@@ -55,6 +55,7 @@
     <Compile Include="Model\Config\Builder\SqlBulkCopyCatConfigBuilder.cs" />
     <Compile Include="Model\Config\ColumnMapping.cs" />
     <Compile Include="Model\Config\Deserialization\Interfaces\ICopyCatConfigDeserializer.cs" />
+    <Compile Include="Model\Config\Deserialization\Json\CopyCatConfigJsonStringDeserializer.cs" />
     <Compile Include="Model\Config\Deserialization\Json\CopyCatConfigJsonFileDeserializer.cs" />
     <Compile Include="Model\Config\Deserialization\Xml\CopyCatConfigXmlFileDeserializer.cs" />
     <Compile Include="Model\Config\CopyCatConfig.cs" />

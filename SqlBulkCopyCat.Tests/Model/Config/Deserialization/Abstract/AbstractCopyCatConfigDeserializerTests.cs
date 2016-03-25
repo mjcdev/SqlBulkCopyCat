@@ -18,6 +18,11 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             return Path.Combine(TestFilesDirectory, testFileName);
         }
 
+        protected string ReadStringFromTestFile(string testFileName)
+        {
+            return File.ReadAllText(TestFileLocation(testFileName));
+        }
+
         protected void SimpleConfigAssertions(CopyCatConfig config)
         {
             config.SourceConnectionString.Should().Be(@"Data Source=(local)\SQLExpress;Initial Catalog=SourceOverride;Integrated Security=True");

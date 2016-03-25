@@ -4,13 +4,11 @@ using System.IO;
 
 namespace SqlBulkCopyCat.Model.Config.Deserialization.Json
 {
-    internal class CopyCatConfigJsonFileDeserializer : ICopyCatConfigDeserializer
+    internal class CopyCatConfigJsonStringDeserializer : ICopyCatConfigDeserializer
     {
         public CopyCatConfig Deserialize(string input)
         {
-            var json = File.ReadAllText(input);
-
-            return JsonConvert.DeserializeObject<CopyCatConfig>(json);              
+            return JsonConvert.DeserializeObject<CopyCatConfig>(input);              
         }
     }
 }
