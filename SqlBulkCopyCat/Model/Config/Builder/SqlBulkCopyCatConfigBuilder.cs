@@ -8,6 +8,8 @@ namespace SqlBulkCopyCat.Model.Config.Builder
     {
         private ICopyCatConfigDeserializer _xmlFileDeserializer;
         private ICopyCatConfigDeserializer _jsonFileDeserializer;
+        private ICopyCatConfigDeserializer _xmlStringDeserializer;
+        private ICopyCatConfigDeserializer _jsonStringDeserializer;
 
         private CopyCatConfig _config = new CopyCatConfig();
 
@@ -24,14 +26,22 @@ namespace SqlBulkCopyCat.Model.Config.Builder
         }
 
         public CopyCatConfigBuilder()
-            : this(new CopyCatConfigXmlFileDeserializer(), new CopyCatConfigJsonFileDeserializer())
+            : this(new CopyCatConfigXmlFileDeserializer(),
+                  new CopyCatConfigJsonFileDeserializer(),
+                  new CopyCatConfigXmlStringDeserializer(),
+                  new CopyCatConfigJsonStringDeserializer())
         {
         }
 
-        internal CopyCatConfigBuilder(ICopyCatConfigDeserializer xmlFileDeserializer, ICopyCatConfigDeserializer jsonFileDeserializer)
+        internal CopyCatConfigBuilder(ICopyCatConfigDeserializer xmlFileDeserializer,
+            ICopyCatConfigDeserializer jsonFileDeserializer,
+            ICopyCatConfigDeserializer xmlStringDeserializer,
+            ICopyCatConfigDeserializer jsonStringDeserializer)
         {
             _xmlFileDeserializer = xmlFileDeserializer;
             _jsonFileDeserializer = jsonFileDeserializer;
+            _xmlStringDeserializer = xmlStringDeserializer;
+            _jsonStringDeserializer = jsonStringDeserializer;
         }
 
         public CopyCatConfig FromXmlFile(string filePath)
@@ -43,6 +53,18 @@ namespace SqlBulkCopyCat.Model.Config.Builder
         public CopyCatConfig FromJsonFile(string filePath)
         {
             Config = _jsonFileDeserializer.Deserialize(filePath);
+            return Config;
+        }
+
+        public CopyCatConfig FromXmlString(string xmlString)
+        {
+            Config = _xmlStringDeserializer.Deserialize(xmlString);
+            return Config;
+        }
+
+        public CopyCatConfig FromJsonString(string jsonString)
+        {
+            Config = _jsonStringDeserializer.Deserialize(jsonString);
             return Config;
         }
     }
