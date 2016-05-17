@@ -1,1 +1,1 @@
-{"SourceConnectionString":null,"DestinationConnectionString":null,"SqlBulkCopySettings":{"BatchSize":300,"BulkCopyTimeout":1000,"EnableStreaming":false,"SqlBulkCopyOptions":20},"TableMappings":[],"SqlTransaction":false}
+{"SourceConnectionString":null,"DestinationConnectionString":null,"SqlBulkCopySettings":{"BatchSize":300,"BulkCopyTimeout":1000,"EnableStreaming":false,"SqlBulkCopyOptions":20,"NotifyAfter":10},"TableMappings":[],"SqlTransaction":false}

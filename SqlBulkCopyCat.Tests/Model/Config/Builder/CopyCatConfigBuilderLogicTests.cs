@@ -53,7 +53,7 @@ namespace SqlBulkCopyCat.Tests.Model
         {
             var config = new CopyCatConfig();
             var mock = new Mock<ICopyCatConfigDeserializer>();
-            mock.Setup(ds => ds.Deserialize(FilePath)).Returns(config);
+            mock.Setup(ds => ds.Deserialize(StringInput)).Returns(config);
             ICopyCatConfigDeserializer mockDeserializer = mock.Object;
 
             var builder = new CopyCatConfigBuilder(null, null, mockDeserializer, null);
@@ -71,7 +71,7 @@ namespace SqlBulkCopyCat.Tests.Model
         {
             var config = new CopyCatConfig();
             var mock = new Mock<ICopyCatConfigDeserializer>();
-            mock.Setup(ds => ds.Deserialize(FilePath)).Returns(config);
+            mock.Setup(ds => ds.Deserialize(StringInput)).Returns(config);
             ICopyCatConfigDeserializer mockDeserializer = mock.Object;
 
             var builder = new CopyCatConfigBuilder(null, null, null, mockDeserializer);

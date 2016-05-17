@@ -78,6 +78,7 @@ namespace SqlBulkCopyCat.Tests.Model.Config.Deserialization.Abstract
             config.SqlBulkCopySettings.EnableStreaming.Should().BeFalse();
             config.SqlBulkCopySettings.SqlBulkCopyOptions.Should().HaveValue();
             config.SqlBulkCopySettings.SqlBulkCopyOptions.Should().Be(20);
+            config.SqlBulkCopySettings.NotifyAfter.Should().Be(10);
             config.SqlBulkCopySettings.GetSqlBulkCopyOptions().Should().Be(SqlBulkCopyOptions.FireTriggers | SqlBulkCopyOptions.TableLock);
             
         }

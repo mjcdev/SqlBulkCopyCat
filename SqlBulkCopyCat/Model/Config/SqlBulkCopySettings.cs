@@ -10,6 +10,8 @@ namespace SqlBulkCopyCat.Model.Config
 
         public bool? EnableStreaming { get; set; }
 
+        public int? NotifyAfter { get; set; }
+
         public int? SqlBulkCopyOptions { get; set; }
 
         public int? SetSqlBulkCopyOptions(SqlBulkCopyOptions sqlBulkCopyOptions)

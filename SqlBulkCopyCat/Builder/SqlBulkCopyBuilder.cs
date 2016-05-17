@@ -21,9 +21,15 @@ namespace SqlBulkCopyCat.Builder
             sqlBulkCopy.ConfigureColumnMappings(tableMapping);
             sqlBulkCopy.ConfigureBatchSize(sqlBulkCopySettings);
             sqlBulkCopy.ConfigureBulkCopyTimeout(sqlBulkCopySettings);
-            sqlBulkCopy.ConfigureEnableStreaming(sqlBulkCopySettings);             
+            sqlBulkCopy.ConfigureEnableStreaming(sqlBulkCopySettings);
+            sqlBulkCopy.ConfigureNotifyAfter(sqlBulkCopySettings);
 
             return sqlBulkCopy;
+        }
+
+        private static void SqlBulkCopy_SqlRowsCopied(object sender, SqlRowsCopiedEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

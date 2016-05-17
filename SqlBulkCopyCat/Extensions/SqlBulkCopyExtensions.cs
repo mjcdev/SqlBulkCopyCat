@@ -9,6 +9,7 @@ namespace SqlBulkCopyCat.Extensions
         private const int BatchSizeDefault = 500;
         private const int BulkCopyTimeoutDefault = 30;
         private const bool EnableStreamingDefault = true;
+        private const int NotifyAfterDefault = 0;
 
         internal static SqlBulkCopy ConfigureColumnMappings(this SqlBulkCopy sqlBulkCopy, TableMapping tableMapping)
         {
@@ -69,6 +70,20 @@ namespace SqlBulkCopyCat.Extensions
             else
             {
                 sqlBulkCopy.EnableStreaming = EnableStreamingDefault;
+            }
+
+            return sqlBulkCopy;
+        }
+
+        internal static SqlBulkCopy ConfigureNotifyAfter(this SqlBulkCopy sqlBulkCopy, SqlBulkCopySettings sqlBulkCopySettings)
+        {
+            if (sqlBulkCopySettings != null && sqlBulkCopySettings.NotifyAfter.HasValue)
+            {
+                sqlBulkCopy.NotifyAfter = sqlBulkCopySettings.NotifyAfter.Value;
+            }
+            else
+            {
+                sqlBulkCopy.NotifyAfter = NotifyAfterDefault;
             }
 
             return sqlBulkCopy;

@@ -5,6 +5,7 @@
     <BulkCopyTimeout>1000</BulkCopyTimeout>
     <EnableStreaming>false</EnableStreaming>
     <SqlBulkCopyOptions>20</SqlBulkCopyOptions>
+    <NotifyAfter>10</NotifyAfter>
   </SqlBulkCopySettings>
   <TableMappings />
   <SqlTransaction>false</SqlTransaction>

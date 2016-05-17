@@ -211,5 +211,37 @@ namespace SqlBulkCopyCat.Tests.Extensions
                 sqlBulkCopy.EnableStreaming.Should().Be(false);
             }
         }
+
+        [Fact]
+        public void ConfigureNotifyAfter_NullNotifyAfter()
+        {
+            using (var sqlBulkCopy = new SqlBulkCopy(TestConnectionString))
+            {
+                var sqlBulkCopyCatSettings = new SqlBulkCopySettings
+                {
+                    NotifyAfter = null
+                };
+
+                sqlBulkCopy.ConfigureNotifyAfter(sqlBulkCopyCatSettings);
+
+                sqlBulkCopy.NotifyAfter.Should().Be(0);
+            }
+        }
+
+        [Fact]
+        public void ConfigureNotifyAfter_NotNullNotifyAfter()
+        {
+            using (var sqlBulkCopy = new SqlBulkCopy(TestConnectionString))
+            {
+                var sqlBulkCopyCatSettings = new SqlBulkCopySettings
+                {
+                    NotifyAfter = 10
+                };
+
+                sqlBulkCopy.ConfigureNotifyAfter(sqlBulkCopyCatSettings);
+
+                sqlBulkCopy.NotifyAfter.Should().Be(10);
+            }
+        }
     }
 }
