@@ -1,4 +1,5 @@
 ﻿using SqlBulkCopyCat.Model.Config;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -84,6 +85,19 @@ namespace SqlBulkCopyCat.Extensions
             else
             {
                 sqlBulkCopy.NotifyAfter = NotifyAfterDefault;
+            }
+
+            return sqlBulkCopy;
+        }
+
+        internal static SqlBulkCopy ConfigureSqlRowsCopiedEventHandlers(this SqlBulkCopy sqlBulkCopy, IEnumerable<SqlRowsCopiedEventHandler> sqlRowsCopiedEventHandlers)
+        {
+            if (sqlRowsCopiedEventHandlers != null)
+            {
+                foreach(var eventHandler in sqlRowsCopiedEventHandlers)
+                {
+                    sqlBulkCopy.SqlRowsCopied += eventHandler;
+                }
             }
 
             return sqlBulkCopy;

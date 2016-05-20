@@ -97,6 +97,7 @@
     <Compile Include="System\Fixtures\DatabaseConstants.cs" />
     <Compile Include="System\Fixtures\SqlBulkCopyCatTestsFixture.cs" />
     <Compile Include="System\SqlBulkCopyCatComplexTests.cs" />
+    <Compile Include="System\SqlBulkCopyCatRowsCopiedEventHandlerTests.cs" />
     <Compile Include="System\SqlBulkCopyPerformanceTests.cs" />
     <Compile Include="System\SqlBulkCopyCatDataTypeTests.cs" />
     <Compile Include="System\SqlTransactionTests.cs" />

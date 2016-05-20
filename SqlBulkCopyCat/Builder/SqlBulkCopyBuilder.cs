@@ -1,16 +1,18 @@
 ﻿using SqlBulkCopyCat.Extensions;
 using SqlBulkCopyCat.Model.Config;
+using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace SqlBulkCopyCat.Builder
 {
     public static class SqlBulkCopyBuilder
     {
-        public static SqlBulkCopy Build(SqlConnection sqlConnection, TableMapping tableMapping, SqlBulkCopySettings sqlBulkCopySettings = null, SqlTransaction sqlTransaction = null)
+        public static SqlBulkCopy Build(SqlConnection sqlConnection, TableMapping tableMapping, SqlBulkCopySettings sqlBulkCopySettings = null, SqlTransaction sqlTransaction = null, IEnumerable<SqlRowsCopiedEventHandler> sqlRowsCopiedEventHandlers = null)
         {
             var sqlBulkCopyOptions = SqlBulkCopyOptions.Default;
 
-            if(sqlBulkCopySettings != null)
+            if (sqlBulkCopySettings != null)
             {
                 sqlBulkCopyOptions = sqlBulkCopySettings.GetSqlBulkCopyOptions();
             }
@@ -24,12 +26,12 @@ namespace SqlBulkCopyCat.Builder
             sqlBulkCopy.ConfigureEnableStreaming(sqlBulkCopySettings);
             sqlBulkCopy.ConfigureNotifyAfter(sqlBulkCopySettings);
 
-            return sqlBulkCopy;
-        }
+            if (sqlRowsCopiedEventHandlers != null)
+            {
+                sqlBulkCopy.ConfigureSqlRowsCopiedEventHandlers(sqlRowsCopiedEventHandlers);
+            }
 
-        private static void SqlBulkCopy_SqlRowsCopied(object sender, SqlRowsCopiedEventArgs e)
-        {
-            throw new System.NotImplementedException();
+            return sqlBulkCopy;
         }
     }
 }
