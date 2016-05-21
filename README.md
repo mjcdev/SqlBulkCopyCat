@@ -17,7 +17,7 @@ Supporting Configuration by:
 - [X] Initial Catalog outside of Connection String Configuration
 - [X] Table Order
 - [X] Nuget Package
-- [ ] Notify after X Event Handler
+- [X] Notify after X Event Handler
 - [ ] Extensibility Points
 
 ## Examples
