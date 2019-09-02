@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 
+using System.Runtime.CompilerServices;
+[assembly:InternalsVisibleTo("SqlBulkCopyCat.Tests")]
+
 namespace SqlBulkCopyCat
 {
     public class CopyCat
